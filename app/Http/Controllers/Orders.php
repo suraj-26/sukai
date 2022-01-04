@@ -28,7 +28,7 @@ class Orders extends Controller
                     $service_name = $details[0];
                     if($details[1] == '1')
                     {
-                        $action = '<button class="btn btn-primary" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary" '.$onclick.'>'.$status.'</button>';
+                        $action = '<button class="btn btn-primary" data-id="'.$row->id.'" data-service_id="'.$row->package.'" data-type="'.$details[1].'" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary" '.$onclick.'>'.$status.'</button>';
                     }
                 }
                 $data .= '<tr>'
@@ -51,7 +51,7 @@ class Orders extends Controller
         $service_id = $request->input('service_id');
         if($type == 1)
         {
-            $checkReport = DB::select('SELECT count(report) as report from order_details where order_id = '.$id.' and service_id = '.$service_id.' and (report = "" or report is null) ');
+            $checkReport = DB::select('SELECT report from order_details where order_id = '.$id.' and service_id = '.$service_id.' and (report = "" or report is null) ');
             if(count($checkReport) > 0)
             {
                 $response['status'] = 301;
@@ -80,6 +80,40 @@ class Orders extends Controller
             $response['data']='Required Parameter Missing';
         }
         return response()->json($response,200);
+    }
+
+    public function UploadFile(Request $request)
+    {
+        $id = $request->input('order_id');
+        $service_id = $request->input('service_id');
+        $type = $request->input('type');
+        $file = $request->file('report');
+
+        echo 'File Name: '.$file->getClientOriginalName();
+        echo '<br>';
+
+        echo 'File Extension: '.$file->getClientOriginalExtension();
+        echo '<br>';
+
+        echo 'File Real Path: '.$file->getRealPath();
+        echo '<br>';
+
+        echo 'File Size: '.$file->getSize();
+        echo '<br>';
+
+        echo 'File Mime Type: '.$file->getMimeType();
+        echo '<br>';
+        $file->move(base_path('\uploads'),$file->getClientOriginalName());
+
+        $uploadFile =  DB::table('order_details')->where('order_id', $id)->where('service_id',$service_id)->update(['report' => $file->getClientOriginalName()]);
+        if($uploadFile)
+        {
+            echo "File Uploaded to Server";
+        }
+        else
+        {
+            echo 'File was not Uploaded to Server';
+        }
     }
 }
 

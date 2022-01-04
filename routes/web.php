@@ -41,6 +41,7 @@ Route::post('placeOrder',[ServiceController::class,'placeOrder']);
 ////Admin Order Details/////
 Route::get('orders_list',[Orders::class,'getOrderDetails']);
 Route::post('updateStatus',[Orders::class,'updateStatus']);
+Route::post('UploadFile',[Orders::class,'UploadFile']);
 
 //////Admin////////////////
 Route::get('patient_list',[Admin::class,'getPatientList']);

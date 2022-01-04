@@ -42,7 +42,12 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form method="post" enctype="multipart/formdata" action="getOrderDetails">
+				<form method="post" enctype="multipart/form-data" action="UploadFile">
+					@csrf
+					<input type="hidden" name="order_id" id="order_id" value="">
+					<input type="hidden" name="service_id" id="service_id" value="">
+					<input type="hidden" name="type" id="type" value="">
+
 					<input type="file" name="report" class="form-group">
 					<button type="button" class="btn btn-secondary float-right" style="margin-left: 15px;" data-dismiss="modal">Close</button>
 					<input type="submit" class="btn btn-primary float-right">
@@ -84,4 +89,17 @@
 			}
 		});
 	}
+
+
+	
+	$('#fileUpload').on('show.bs.modal', function (event) {
+		var button = $(event.relatedTarget)
+		var id = button.data('id');
+		var service_id = button.data('service_id');
+		var type = button.data('type');
+
+		$('#order_id').val(id);
+		$('#service_id').val(service_id);
+		$('#type').val(type);
+	});
 </script>
