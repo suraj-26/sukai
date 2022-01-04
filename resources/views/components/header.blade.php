@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Ecommerce Dashboard &mdash; Stisla</title>
+  <title>Sukaii</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.11.3/af-2.3.7/b-2.1.1/b-colvis-2.1.1/b-html5-2.1.1/b-print-2.1.1/cr-1.5.5/date-1.1.1/fc-4.0.1/fh-3.2.1/kt-2.6.4/r-2.2.9/rg-1.1.4/rr-1.2.8/sc-2.0.5/sb-1.3.0/sp-1.4.0/sl-1.3.4/sr-1.0.1/datatables.min.css"/>
+
   <!-- CSS Libraries -->
-  <link rel="stylesheet" href="{{ URL::asset('css/jqvmap.min.css') }}" />
+<!--   <link rel="stylesheet" href="{{ URL::asset('css/jqvmap.min.css') }}" />
   <link rel="stylesheet" href="{{ URL::asset('css/summernote-bs4.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('css/owl.carousel.min.css') }}">
-  <link rel="stylesheet" href="{{ URL::asset('css/owl.theme.default.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/owl.theme.default.min.css') }}"> -->
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
@@ -34,7 +36,7 @@
             <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
             <div class="search-backdrop"></div>
-            <div class="search-result">
+            <!-- <div class="search-result">
               <div class="search-header">
                 Histories
               </div>
@@ -90,11 +92,11 @@
                   Create a new Homepage Design
                 </a>
               </div>
-            </div>
+            </div> -->
           </div>
         </form>
         <ul class="navbar-nav navbar-right">
-          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
+          <!-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
               <div class="dropdown-header">Messages
                 <div class="float-right">
@@ -218,17 +220,17 @@
                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
               </div>
             </div>
-          </li>
+          </li> -->
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, </div></a>
+            <!-- <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1"> -->
+            <div class="d-sm-none d-lg-inline-block">ADMIN</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">Logged in 5 min ago</div>
+             <!--  <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="features-profile.html" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
-              </a>
+              </a> -->
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="login" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -241,20 +243,21 @@
             <a href="index.html">SUKAI</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="index.html">sukai</a>
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
               <li class="nav-item dropdown active">
-                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="/" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
               </li>
               <!-- <li class="menu-header">Starter</li> -->
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Patients</span></a>
-              </li>
-              <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Services</span></a></li>
-            </ul>
+              <li class="dropdown"><a class="nav-link" href="orders_list"><i class="far fa-square"></i> <span>Order Details</span></a></li>
 
+              <li class="dropdown">
+                <a href="patient_list" class="nav-link"><i class="fas fa-columns"></i> <span>Patients</span></a>
+              </li>
+              <li class="nav-item dropdown"><a class="nav-link" href="services"><i class="far fa-square"></i> <span>Services</span></a></li>
+            </ul>
         </aside>
       </div>
 

@@ -3,20 +3,20 @@
 	<div class="col-md-12">
 		<div class="card">
 			<div class="card-header">
-				<h4>Services List</h4>
+				<h4>Patients List</h4>
 				<div class="card-header-action">
 					<!--  <a href="#" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a> -->
 				</div> 	
 			</div>
 
 			<div class="card-body">
-				<table id="services" class="table table-hover">
+				<table id="patients" class="table table-hover">
 					<thead>
 						<tr>
-							<td>Service Id</td>
-							<td>Name</td>
-							<td>Rate</td>
-							<td>Type</td>
+							<td>Patient Name</td>
+							<td>Email</td>
+							<td>Mobile No</td>
+							<td>Address</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -30,7 +30,7 @@
 <x-footer/>
 <script>
 	$(document).ready(function() {
-		$('#services').DataTable();
+		$('#patients').DataTable();
 	} );
 
 </script>

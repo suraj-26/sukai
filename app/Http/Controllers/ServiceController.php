@@ -11,6 +11,36 @@ class ServiceController extends Controller
         return DB::select('select id,service_name from serveices where status=1');
     }
 
+    public function getServicesList()
+    {
+        $data = "";
+        $services = DB::select('SELECT * from serveices where status = 1 order by service_type desc');
+        if(count($services)>0)
+        {
+            foreach($services as $row){   
+            $serviceType = $row->service_type;
+            $type = "Lab Test";
+            if($serviceType == 2)
+            {
+                $type = "Elderly Services";
+            }
+            if($serviceType ==3)
+            {
+                $type = "Nursing Services";
+            } 
+                $data .= '<tr>'
+                .'<td>'.$row->service_id.'</td>'
+                .'<td>'.$row->service_name.'</td>'
+                .'<td>'.$row->service_rate.'</td>'
+                .'<td>'.$type.'</td>'
+                .'</tr>';
+            }
+
+        }
+        return view('services',array('data'=>$data));
+
+    }
+
     public function orderServices(){
         return view('orderServices');
     }
@@ -22,30 +52,30 @@ class ServiceController extends Controller
         $response = array();
             $order_master_insert = DB::table('order_master')->insertGetId([
                 'package' => $req->input('package'),
-                'status' => 1,
+                'location'=> $req->input('location'),
+                'start_date' => $req->input('start_dt'),
+                'end_date' => $req->input('end_date'),
+                'start_time' => $req->input('schedule_time_from'),
+                'end_time' => $req->input('schedule_time_to'),
                 'patient_id' => $req->input('user_id'),
                 'created_on' => Date('Y-m-d H:i:s'),
                 'created_by' => 1
             ]);
+            $arrOrderDet = array();
+
             if($order_master_insert){
-                $package_det = DB::table('package_details')->where('package_id',$req->input('package'))->get();
-                $arrOrderDet = array();
-                foreach($package_det as $package_det_row){
+                // $package_det = DB::table('package_details')->where('package_id',)->get();
+                // foreach($package_det as $package_det_row){
                     $data = array(
                         'order_id' => $order_master_insert,
-                        'service_id' => $package_det_row->service_id,
+                        'service_id' => $req->input('package'),
                         'patient_id' => $req->input('user_id'),
                         'created_by' => 1,
                         'created_on' => Date('Y-m-d H:i:s'),
-                        'status' => 1,
-                        'location'=> $req->input('location'),
-                        'start_dt' => $req->input('start_dt'),
-                        'end_date' => $req->input('end_date'),
-                        'schedule_time_from' => $req->input('schedule_time_from'),
-                        'schedule_time_to' => $req->input('schedule_time_to')
-                    }
+                    );
+                    // }
                     array_push($arrOrderDet,$data);
-                }
+
                 $package_det_insert = DB::table('order_details')->insert($arrOrderDet);
                 if($package_det_insert){
                     $response['status']=200;

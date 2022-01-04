@@ -1,9 +1,11 @@
-<?php
+    <?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Orders;
+use App\Http\Controllers\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +37,11 @@ Route::post('goSignIn',[RegisterController::class,'goSignIn']);
 Route::get('orderServices',[ServiceController::class,'orderServices']);
 Route::get('order',[ServiceController::class,'order']);
 Route::post('placeOrder',[ServiceController::class,'placeOrder']);
+
+////Admin Order Details/////
+Route::get('orders_list',[Orders::class,'getOrderDetails']);
+Route::post('updateStatus',[Orders::class,'updateStatus']);
+
+//////Admin////////////////
+Route::get('patient_list',[Admin::class,'getPatientList']);
+Route::get('services',[ServiceController::class,'getServicesList']);
