@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sukaii</title>
-        
+
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/website.css') }}">
 
@@ -37,11 +37,11 @@
     <header id="">
         <div class="align-items-center border-bottom row">
             <div class="col col-md-3 col-sm-6">
-                <img src="{{ URL::asset('images/sukaii_transparent_logo.png')}}" alt="Sukaii" class="p-2 logo_mobile"> 
+                <img src="{{ URL::asset('images/sukaii_transparent_logo.png')}}" alt="Sukaii" class="p-2 logo_mobile">
             </div>
             <div class="col-6 col-md-9 col-sm-6 hide_menu">
                 <div class="d-md-block d-none justify-content-end login_row row w-100">
-                    
+
 
                     <ul class="d-flex float-right list-unstyled mb-2">
                       @if(session()->has('name'))
@@ -62,7 +62,7 @@
                             </a>
                         </div>
                     </li>
-                    @else 
+                    @else
                     <li class="login_row_list px-3"><a href="{{URL::to('login')}}">Login/Signup</a></li>
                     @endif
                     <li class="login_row_list px-3"><span class="p-2"><i class="fas fa-map-marker-alt"></i></span>Bangkok</li>
@@ -72,7 +72,7 @@
             </div>
             <div class="d-md-block d-none float-right row w-100">
                 <ul class="d-flex float-right mb-0">
-                    <li class="menu_list px-3"><a href="#" class="text-dark">HOME</a></li>
+                    <li class="menu_list px-3"><a href="{{ URL::to('/') }}" class="text-dark">HOME</a></li>
                     <li class="menu_list  px-3">SERVICES</li>
                     <li class="menu_list px-3">FAQ</li>
                     <li class="menu_list px-3">PARTNERS</li>

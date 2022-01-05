@@ -64,11 +64,7 @@ class ServiceController extends Controller
             'start_date' => 'required',
         ]);
         $end_date = $req->input('end_date');
-        if ($end_date != null || $end_date != "") {
-            $end_date = $end_date;
-        } else {
-            $end_date = "";
-        }
+
         $type = $req->input('type');
         $services = $req->input('service_code');
         $arrOrderDet = array();
