@@ -70,7 +70,9 @@
     <div class="col-md-12 p-0">
         <img src="{{ URL::asset('images/front-image.jpg')}}" alt="" class="w-100">
         <div class=" px-0  d-none d-md-block">
-            <h3 class="nurses_image mb-0 position-absolute text-light"><span><h1 class="mb-0">Healthcare</h1></span>at your Home</h3>
+            <h3 class="nurses_image mb-0 position-absolute text-light"><span><h1 class="mb-0">Healthcare</h1></span>at
+                your Home
+            </h3>
         </div>
     </div>
 
@@ -93,36 +95,46 @@
             <h4 class="thb_text">FULL BODY CHECK UP ONLY AT</h4>
             <h1 class="thb_300"><span>THB300</span></h1>
         </div>
-        <div class="row">
-            <div class="freecall_div border-dark p-2 form-control ">
-                <span><i class="fas fa-user freecall_name_icon"></i></span>
-                <input type="text" name="Name" class="border-0 pl-4" placeholder="NAME" id="freecall_name">
+        <form method="POST" action="getEnquiry">
+            @csrf
+            <div class="row">
+                <div class="freecall_div border-dark p-2 form-control ">
+                    <span><i class="fas fa-user freecall_name_icon"></i></span>
+                    <input type="text" name="Name" class="border-0 pl-4" placeholder="Enter Your Name"
+                           id="freecall_name">
+                </div>
+
+                <div class="freecall_div border-dark p-2 form-control ">
+                    <span><i class="fas fa-user freecall_name_icon"></i></span>
+                    <input type="text" name="mobile" class="border-0 pl-4" style="outline: none"
+                           placeholder="Enter your Mobile No" id="freecall_mobile">
+                </div>
+
+                <div class="freecall_div border-dark form-control py-0">
+                    <span><i class="fas fa-map-marker-alt freecall_name_icon"></i></span>
+                    <select name="services" id="freecall_services" placeholder="Services"
+                            class="border-0 form-control py-0">
+                        <option disabled class="form-control">Select Services</option>
+                        <option value="Nursing Services" class="form-control">Nursing Services</option>
+                        <option value="Elderly Services" class="form-control">Elderly Services</option>
+                        <option value="Lab Test" class="form-control">Lab Test</option>
+                    </select>
+                </div>
+                <div class="freecall_div border-dark form-control py-0">
+                    <span><i class="fas fa-heartbeat freecall_name_icon"></i></span>
+                    <select name="location" id="freecall_service" class="border-0 form-control py-0">
+                        <option disabled class="form-control">select Location</option>
+                        <option value="MUMBAI" class="form-control">MUMBAI</option>
+                        <option value="GUJRAT" class="form-control">GUJRAT</option>
+                        <option value="PUNE" class="form-control">PUNE</option>
+                        <option value="SIKKIM" class="form-control">SIKKIM</option>
+                    </select>
+                </div>
+                <div class="border call_btn     m-auto px-3 py-2">
+                    <button><h3 class="mb-0">BOOK NOW</h3></button>
+                </div>
             </div>
-            <div class="freecall_div border-dark form-control py-0">
-                <span><i class="fas fa-map-marker-alt freecall_name_icon"></i></span>
-                <select name="freecall_location" id="freecall_location" placeholder="LOCATION"
-                        class="border-0 form-control py-0">
-                    <option value="LOCATION" class="form-control">LOCATION</option>
-                    <option value="MUMBAI" class="form-control">MUMBAI</option>
-                    <option value="GUJRAT" class="form-control">GUJRAT</option>
-                    <option value="PUNE" class="form-control">PUNE</option>
-                    <option value="SIKKIM" class="form-control">SIKKIM</option>
-                </select>
-            </div>
-            <div class="freecall_div border-dark form-control py-0">
-                <span><i class="fas fa-heartbeat freecall_name_icon"></i></span>
-                <select name="freecall_service" id="freecall_service" class="border-0 form-control py-0">
-                    <option value="LOCATION" class="form-control">LOCATION</option>
-                    <option value="MUMBAI" class="form-control">MUMBAI</option>
-                    <option value="GUJRAT" class="form-control">GUJRAT</option>
-                    <option value="PUNE" class="form-control">PUNE</option>
-                    <option value="SIKKIM" class="form-control">SIKKIM</option>
-                </select>
-            </div>
-            <div class="border call_btn     m-auto px-3 py-2">
-                <h3 class="mb-0">BOOK NOW</h3>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 </div>
@@ -142,7 +154,8 @@
                                                                style="padding: 0.85rem 0.3rem"><i
                         class="fas fa-hand-holding-medical"></i></span> Select Services
             </li>
-            <li class="text-center text-dark t_way" style="padding-left: 50px"><span class="t_way_icon" style="padding: 0.7rem 1.2rem;"><i
+            <li class="text-center text-dark t_way" style="padding-left: 50px"><span class="t_way_icon"
+                                                                                     style="padding: 0.7rem 1.2rem;"><i
                         class="far fa-calendar-alt"></i></span> Enter Time and Date
             </li>
         </ul>

@@ -54,3 +54,4 @@ Route::get('services',[ServiceController::class,'getServicesList']);
 Route::get('/',[Home::class,'index']);
 Route::get('Book',[Home::class,'Book']);
 Route::get('Order_History',[Home::class,'UserOrderHistory']);
+Route::post('getEnquiry',[Home::class,'getEnquiry']);

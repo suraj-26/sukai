@@ -45,4 +45,32 @@ class Home extends Controller
         }
         return view('web/OrderHistory',array('data'=>$data));
     }
+
+
+    public function getEnquiry(Request $req)
+    {
+        $name = $req->input('Name');
+        $mobile = $req->input('mobile');
+        $services = $req->input('services');
+        $location = $req->input('location');
+        $patient_id = session('id');
+
+        $insert_enquiry = DB::table('user_enquiry')->insert([
+            'patient_id'=> $patient_id,
+            'name' => $name,
+            'mobile' => $mobile,
+            'services' => $services,
+            'location' => $location
+        ]);
+        if($insert_enquiry)
+        {
+            return redirect('/');
+        }
+        else
+        {
+            $response['status'] = 201;
+            $response['data'] = "Insertion Failed";
+        }
+    }
 }
+

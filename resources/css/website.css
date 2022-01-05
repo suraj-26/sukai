@@ -102,7 +102,10 @@
 #freecall_name input[placeholder="NAME"]{
     padding-left: 1.5rem;
 }
-#freecall_name, #freecall_location{
+#freecall_mobile input[placeholder="NAME"]{
+    padding-left: 1.5rem;
+}
+#freecall_name, #freecall_mobile, #freecall_location{
     padding-left: 16px;
 font-size: 15px;
 font-weight: 600;
@@ -113,6 +116,17 @@ font-weight: 600;
         width: 500px;
 }
 .freecall_name_icon {
+    border: 1.5px solid black;
+    padding: 0.5rem;
+    border-radius: 50px;
+    position: absolute;
+    top: 5%;
+    left: -5%;
+    background: white;
+    color: #06b5b9;
+}
+
+.freecall_mobile_icon {
     border: 1.5px solid black;
     padding: 0.5rem;
     border-radius: 50px;
@@ -328,6 +342,10 @@ font-weight: 600;
     padding-bottom: 0.15rem;
 }
 input#freecall_name:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+input#freecall_mobile:focus {
     outline: none !important;
     box-shadow: none !important;
 }
