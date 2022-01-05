@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class Login extends Controller
 {
@@ -17,17 +18,28 @@ class Login extends Controller
         $username = $req->input('username');
         $password = $req->input('password');
         $request = array();
-        $data = DB::table('users_master')->where(array("user_name"=>$username,"password"=>$password,"user_type"=>2))->first();
-        // $data = DB::select('select * from users_master where user_name="'.$username.'" AND  password="'.$password.'"');
+        $data = DB::table('users_master')->where(array("user_name"=>$username,"password"=>$password))->first();
         if(!empty($data)){
-
-            $request['status']="200";
-            $request['data']=$data;
+            session(['id'=>$data->id,'name'=>$data->name]);
+            session()->regenerate();
+            if($data->user_type == 1)
+            {
+                return redirect('/Dashboard');
+            }
+            else
+            {
+                return redirect('/');
+            }
         }else{
             $request['status']="201";
             $request['data']="Invalid Credentials.";
         }
-        echo json_encode($request);
-        // return DB::select('select id,service_name from serveices where status=1');
+    }
+
+
+    public function logout()
+    {
+        Session::flush();
+         return redirect('/');
     }
 }

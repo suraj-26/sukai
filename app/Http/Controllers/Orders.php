@@ -8,7 +8,7 @@ class Orders extends Controller
     public function getOrderDetails()
     {
         $data = "";
-        $order_details = DB::select('SELECT *,(select group_concat(service_name,"||",service_type) from serveices sd where sd.id = od.package ) as details, (select name from users_master um where um.id = od.patient_id ) as patient_name FROM `order_master` od where od.patient_id = 2');
+        $order_details = DB::select('SELECT *,(select group_concat(service_name,"||",service_type) from serveices sd where sd.id = od.package ) as details, (select name from users_master um where um.id = od.patient_id ) as patient, (select order_status from order_details odd where odd.order_id = od.id ) as status FROM `order_master` od');
         if(count($order_details)>0)
         {
             foreach($order_details as $row){
@@ -16,7 +16,7 @@ class Orders extends Controller
                 $details = explode('||', $detail);
                 $status = "PENDING";
                 $onclick = 'onclick="updateStatus('.$row->id.','.$row->package.','.$details[1].')"';
-                if($row->order_status == 1)
+                if($row->status == 1)
                 {
                     $status = "COMPLETED";
                     $onclick = "disabled";
@@ -32,6 +32,7 @@ class Orders extends Controller
                     }
                 }
                 $data .= '<tr>'
+                .'<td>'.$row->patient.'</td>'
                 .'<td>'.$row->patient_name.'</td>'
                 .'<td>'.$service_name.'</td>'
                 .'<td>'.$row->start_date.'</td>'

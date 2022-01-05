@@ -8,7 +8,8 @@ use  Illuminate\Support\Facades\DB;
 class ServiceController extends Controller
 {
     public function getServices(){
-        return DB::select('select id,service_name from serveices where status=1');
+        $services =  DB::select('select id,service_name from serveices where status=1 and service_type = 1');
+        var_dump($services);
     }
 
     public function getServicesList()
@@ -49,15 +50,24 @@ class ServiceController extends Controller
     }
 
     public function placeOrder(Request $req){
+
+
+         $this->validate($req, [
+          'name' => 'required',
+          'start_date'=>'required',
+          'end_date' => 'required'
+       ]);
+
+
+
         $response = array();
             $order_master_insert = DB::table('order_master')->insertGetId([
                 'package' => $req->input('package'),
                 'location'=> $req->input('location'),
-                'start_date' => $req->input('start_dt'),
+                'start_date' => $req->input('start_date'),
                 'end_date' => $req->input('end_date'),
-                'start_time' => $req->input('schedule_time_from'),
-                'end_time' => $req->input('schedule_time_to'),
-                'patient_id' => $req->input('user_id'),
+                'patient_id' => session('id'),
+                'patient_name'=>$req->input('name'),
                 'created_on' => Date('Y-m-d H:i:s'),
                 'created_by' => 1
             ]);
@@ -69,7 +79,7 @@ class ServiceController extends Controller
                     $data = array(
                         'order_id' => $order_master_insert,
                         'service_id' => $req->input('package'),
-                        'patient_id' => $req->input('user_id'),
+                        'patient_id' => session('id'),
                         'created_by' => 1,
                         'created_on' => Date('Y-m-d H:i:s'),
                     );
@@ -80,6 +90,7 @@ class ServiceController extends Controller
                 if($package_det_insert){
                     $response['status']=200;
                     $response['data']='Registered successfully';
+                    return redirect('/');
                 }else{
                     $response['status']=201;
                     $response['data']='Something went wrong';

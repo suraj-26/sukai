@@ -14,6 +14,7 @@
 					<thead>
 						<tr>
 							<td>Patient Name</td>
+							<td>Customer Name</td>
 							<td>Service Name</td>
 							<td>From Date</td>
 							<td>To Date</td>
