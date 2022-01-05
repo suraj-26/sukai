@@ -7,39 +7,58 @@
     <title>Sukaii</title>
 </head>
 <style>
+    .list{
+        background: #efefef;
+    }
+    .list input{
+        accent-color: #ea088b;
+    }
+    .list label{
+        color: #ea088b;
+    }
+    .form-control:focus{
+        box-shadow: none;
+        outline: none;
+    }
 
+    span.select2.select2-container.select2-container--default.select2-container--below{
+        width: 100%!important;
+    }
+    span.select2.select2-container.select2-container--default{
+     width: 100%!important;
+ }
 </style>
 <body>
     @include('web.web_header');
-<div class="header_mobile_carousel d-block d-md-none row mb-4">
-    <div class="col-md-12">
-        <div id="mobile_carousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#mobile_carousel" data-slide-to="0" class="active"></li>
-              <li data-target="#mobile_carousel" data-slide-to="1"></li>
-              <li data-target="#mobile_carousel" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ URL::asset('images/Healthcare-at-home.jpg')}}" alt="First slide">
+    <div class="header_mobile_carousel d-block d-md-none row mb-4">
+        <div class="col-md-12">
+            <div id="mobile_carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#mobile_carousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#mobile_carousel" data-slide-to="1"></li>
+                  <li data-target="#mobile_carousel" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{ URL::asset('images/Healthcare-at-home.jpg')}}" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ URL::asset('images/Covid-Test.jpg')}}" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ URL::asset('images/lab-test-at-home.jpg')}}" alt="Third slide">
+                </div>
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ URL::asset('images/Covid-Test.jpg')}}" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ URL::asset('images/lab-test-at-home.jpg')}}" alt="Third slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#mobile_carousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#mobile_carousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-      </a>
+            <a class="carousel-control-prev" href="#mobile_carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#mobile_carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
+      </div>
   </div>
-</div>
 
 </div>
 <div class="row mb-5">
@@ -47,12 +66,12 @@
 
     <!-- at your home -->
     <div class="col-md-4 px-0  d-none d-md-block">
-     <img src="{{ URL::asset('images/image.svg')}}" alt="" class="w-100" style="margin-top: -4px;">
-     <h3 class="nurses_image mb-0 position-absolute text-light"><span><h1 class="mb-0">Healthcare</h1></span>at your Home</h3>
- </div>
- <div class="col-md-8 px-0  d-none d-md-block">
-     <img src="{{ URL::asset('images/Healthcare-at-home (1).jpg')}}" class="w-100" style="height: 88.5%;" alt="">
- </div>
+       <img src="{{ URL::asset('images/image.svg')}}" alt="" class="w-100" style="margin-top: -4px;">
+       <h3 class="nurses_image mb-0 position-absolute text-light"><span><h1 class="mb-0">Healthcare</h1></span>at your Home</h3>
+   </div>
+   <div class="col-md-8 px-0  d-none d-md-block">
+       <img src="{{ URL::asset('images/Healthcare-at-home (1).jpg')}}" class="w-100" style="height: 88.5%;" alt="">
+   </div>
 </div>
 <div class="container d-md-flex d-sm-block" style="margin-bottom: 7rem;">
     <div class="col-md-4 col-sm-12 text-center">
@@ -69,11 +88,11 @@
             <h1 class="thb_300"><span>THB300</span></h1>
         </div>
         <div class="row">
-         <div class="freecall_div border-dark p-2 form-control ">
-             <span><i class="fas fa-user freecall_name_icon"></i></span>
-             <input type="text" name="Name" class="border-0 pl-4" placeholder="NAME" id="freecall_name">
-         </div>
-         <div class="freecall_div border-dark form-control py-0">
+           <div class="freecall_div border-dark p-2 form-control ">
+               <span><i class="fas fa-user freecall_name_icon"></i></span>
+               <input type="text" name="Name" class="border-0 pl-4" placeholder="NAME" id="freecall_name">
+           </div>
+           <div class="freecall_div border-dark form-control py-0">
             <span><i class="fas fa-map-marker-alt freecall_name_icon"></i></span>
             <select name="freecall_location" id="freecall_location" placeholder="LOCATION" class="border-0 form-control py-0">
                 <option value="LOCATION" class="form-control">LOCATION</option>
@@ -94,9 +113,9 @@
             </select>
         </div>
         <div class="border call_btn     m-auto px-3 py-2">
-           <h3 class="mb-0">BOOK NOW</h3>
-       </div>
-   </div>
+         <h3 class="mb-0">BOOK NOW</h3>
+     </div>
+ </div>
 </div>
 </div>
 </div>
@@ -107,36 +126,41 @@
         <h2 class="mb-0"><b style="color: #00b4b8;">BOOK NOW</b></h2><p class="mb-0"><b>In Just 3 easy steps</b></p>
     </div>
     <div class="imp_3_way">
-       <ul class="pt-5">
-           <li class="text-center text-dark f_way my-4"><span class="f_way_icon"><i class="fas fa-map-marker-alt"></i></span> Select Location</li>
-           <li class="text-center text-dark s_way mb-4"><span class="s_way_icon px-3" style="padding: 0.85rem 0.3rem"><i class="fas fa-hand-holding-medical"></i></span> Select Location</li>
-           <li class="text-center text-dark t_way"><span class="t_way_icon" style="padding: 0.7rem 1.2rem;"><i class="far fa-calendar-alt"></i></span> Select Location</li>
-       </ul>
-   </div>
+     <ul class="pt-5">
+         <li class="text-center text-dark f_way my-4"><span class="f_way_icon"><i class="fas fa-map-marker-alt"></i></span> Select Location</li>
+         <li class="text-center text-dark s_way mb-4"><span class="s_way_icon px-3" style="padding: 0.85rem 0.3rem"><i class="fas fa-hand-holding-medical"></i></span> Select Location</li>
+         <li class="text-center text-dark t_way"><span class="t_way_icon" style="padding: 0.7rem 1.2rem;"><i class="far fa-calendar-alt"></i></span> Select Location</li>
+     </ul>
+ </div>
 </div>
 <div class="container">
     <div class="row" style="    margin-bottom: 4rem;">
-        <div class="align-items-sm-center col-md-4 col-sm-12 d-md-block d-sm-flex nurse-at-home_div" style="border-right: 2px solid #898686;">
+        <div id="box1" class="align-items-sm-center col-md-4 col-sm-12 d-md-flex flex-md-column d-sm-flex nurse-at-home_div" style="border-right: 2px solid #898686;">
             <div class=" nearse_image"><img src="{{ URL::asset('images/ealdrly_img(2).png')}}" alt="" class="w-75"></div>
             <div class="" style="width: 100%; margin: auto;">
                 <h2 class="Nurse_at_home_text text-center">HEALTH CHECK</h2>
-                <div class="book_btn text-center"><a href="{{URL::to('Book')}}" class="btn book_services_btn text-light">BOOK</a></div>
+                <div class="book_btn text-center"><button type="button" onclick="showForm(1)" class="btn book_services_btn text-light">BOOK</button></div>
             </div>
         </div>
-        <div class="align-items-sm-center col-md-4 col-sm-12 d-md-block d-sm-flex nurse-at-home_div" style="border-right: 2px solid #898686;">
+        <div id="box2" class="align-items-sm-center col-md-4 col-sm-12 d-md-flex flex-md-column d-sm-flex nurse-at-home_div" style="border-right: 2px solid #898686;">
             <div class=" nearse_image"><img src="{{ URL::asset('images/nurse-at-home(2).png')}}" alt="" class="w-75"></div>
             <div class="" style="width: 100%; margin: auto;">
                 <h2 class="Nurse_at_home_text text-center">NURSE CARE</h2>
-                <div class="book_btn text-center"><a href="{{URL::to('Book')}}" class="btn book_services_btn text-light">BOOK</a></div>
+                <div class="book_btn text-center"><button type="button"  onclick="showForm(2)" class="btn book_services_btn text-light">BOOK</button></div>
             </div>
         </div>
-        <div class="align-items-sm-center col-md-4 col-sm-12 d-md-block d-sm-flex lab_test_div">
+        <div  id="box3" class="align-items-sm-center col-md-4 col-sm-12 d-md-flex flex-md-column d-sm-flex lab_test_div">
             <div class="text-center lab_img lab_test"><img src="{{ URL::asset('images/lab-test(2).png')}}" alt="" class="w-75"></div>
             <div class="" style="width: 100%; margin: auto;">
                 <h2 class="LAB_TEST_AT_HOME_text text-center">COVID TEST</h2>
-                <div class="book_btn text-center"><a href="{{URL::to('Book')}}" class="btn book_services_btn text-light">BOOK</a></div>
+                <div class="book_btn text-center"><button type="button"  onclick="showForm(3)" class="btn book_services_btn text-light">BOOK</button></div>
             </div>
         </div>
+
+        <div id="box4"  class="col-md-6 d-none col-sm-12">
+            @include('web.book_now')
+        </div>
+
     </div>
 </div>
 
@@ -144,13 +168,13 @@
     <div class="pt-4 pb-3 w-100 col-sm-12"><h1 class="text-center why_us w-100">WHY SUKAII</h1></div>
     <div class="row" style=" margin-left: 0px; margin-right: 0px;">
         <div class="col-md-4">
-         <div class="f_s_c text-center pb-4"> <img src="{{ URL::asset('images/Free-Sample-Collection.png')}}" class="" width="40%" alt="" style="border-radius: 32px;"></div>
-         <div class="f_s_c_heading pb-2"><h3 class="text-center mb-0"><div class="">Sample Collected at Home</div></h3></div>
-         <div class="f_s_c_detail">
-             <p>Our trained nurse will come to your home or office to collect the blood or sample for testing.</p>
-         </div>
-     </div>
-     <div class="col-md-4 text-center">
+           <div class="f_s_c text-center pb-4"> <img src="{{ URL::asset('images/Free-Sample-Collection.png')}}" class="" width="40%" alt="" style="border-radius: 32px;"></div>
+           <div class="f_s_c_heading pb-2"><h3 class="text-center mb-0"><div class="">Sample Collected at Home</div></h3></div>
+           <div class="f_s_c_detail">
+               <p>Our trained nurse will come to your home or office to collect the blood or sample for testing.</p>
+           </div>
+       </div>
+       <div class="col-md-4 text-center">
         <div class="f_d_c pb-4"><img src="{{ URL::asset('images/Free-Doctor-Consultation.png')}}" class="" width="40%" alt="" style="border-radius: 32px;"></div>
         <div class="f_d_c_heading pb-2"><h3 class="text-center mb-0"><div class="">State-of-the-art Diagnostics</div></h3></div>
         <div class="f_d_c_detail">
@@ -158,9 +182,9 @@
         </div>
     </div>
     <div class="col-md-4 text-center">
-     <div class="f_sp_c pb-4"> <img src="{{ URL::asset('images/Free-Smart-Reports.png')}}" class="" width="40%" alt="" style="border-radius: 32px;"></div>
-     <div class="f_sp_c_heading pb-2"><h3 class="text-center mb-0"><div>Sukaii Report</div></h3></div>
-     <div class="f_sp_c_detail">
+       <div class="f_sp_c pb-4"> <img src="{{ URL::asset('images/Free-Smart-Reports.png')}}" class="" width="40%" alt="" style="border-radius: 32px;"></div>
+       <div class="f_sp_c_heading pb-2"><h3 class="text-center mb-0"><div>Sukaii Report</div></h3></div>
+       <div class="f_sp_c_detail">
         <p>Our proprietary report format finally allows you to understand the results of your tests and track your health over time.</p>
     </div>
 </div>
@@ -299,27 +323,127 @@
     </div>
     <p class="text-center copy_write">Copyright <span><i class="far fa-copyright"></i></span> 2021 sukaii. All Rights Reserved.</p>
 </div>
-        <!-- <div class="book_with_mob row text-center">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 d-flex">
-                <div class="form-control mobole_no" style="display: flex;"><span><i class="fas fa-mobile-alt"></i></span><input type="number" class="form-control" style="border: none;" placeholder="ENTER YOUR MOBILE NUMBER"></div>
-                <div class="book_now_btn pl-5"><button type="btn" class="btn bnp" style="padding: 0.62rem;">BOOK NOW</button></div>
-            </div>
-            <div class="col-md-3"></div>
+</body>
+<script>
+    var toggle_menu_btn = document.getElementById('mobile_menu_btn');
+    function open_menu(){
+        console.log(1);
+        if(toggle_menu_btn.style.display == 'none' || toggle_menu_btn.style.display == ""){
+            toggle_menu_btn.style.display = "block";
+            console.log(2);
+        }else{
+            toggle_menu_btn.style.display = "none";
+            console.log(3);
+        }
+    };
+</script>
 
-        </div> -->
-    </body>
-    <script>
-        var toggle_menu_btn = document.getElementById('mobile_menu_btn');
-        function open_menu(){
-            console.log(1);
-            if(toggle_menu_btn.style.display == 'none' || toggle_menu_btn.style.display == ""){
-                toggle_menu_btn.style.display = "block";
-                console.log(2);
-            }else{
-                toggle_menu_btn.style.display = "none";
-                console.log(3);
+
+<script> 
+    const mySelectedServices=[];
+    $(function(){
+        fetchServices();
+    });
+
+    function add_services(services){
+        services = services.split('|');
+        function findIndexLogic(value,index){
+            return services[0] === value.id;
+        }
+        if(mySelectedServices.findIndex(findIndexLogic) == -1){
+            mySelectedServices.push({'id':services[0],'name':services[1]});      
+        }
+        updateItemList();
+        $("#service_code").val(mySelectedServices.map(e=>{return e.id}).join(","))
+    }
+
+    function fetchServices()
+    {
+        $.ajax({
+            url: 'getServices',
+            type: 'get',
+            success: function(response){
+                response = JSON.parse(response);
+                if(response.status == 200)
+                {
+                 let options =  response.body.map(function(serviceOject){
+                    return `<option value="${serviceOject.id}|${serviceOject.service_name}">${serviceOject.service_name}</option>`                        
+                });
+                 $("#sukaii_services").empty();
+                 $('#sukaii_services').select2();
+                 $("#sukaii_services").append(options.join(""));
+             }    
+             else
+             {
+                console.log(response.data);
             }
-        };
-    </script>
-    </html>
+        }
+    });
+    }
+
+    function updateItemList(){
+        let items=mySelectedServices.map(function(serviceName,index){
+            return `<div class="list list-1 form-control mb-2" id="list-${index}">
+            <span><i class="fas fa-times" id="remove_${index}" onclick="remove_service(${index})"></i></span>
+            <label for="service_1" class="mb-0 pl-4"><b>${serviceName.name}</b>
+            </label><br>
+            </div>`;
+        });
+        let add_here = document.getElementById('service_form');            
+        $("#service_form").empty();
+        $("#service_form").append(items.join(""));
+    }
+    function remove_service(id){
+        document.getElementById(`list-${id}`).remove();            
+        mySelectedServices.splice(id,1);
+        updateItemList();
+        $("#service_code").val(mySelectedServices.map(e=>{return e.id}).join(","))
+    }
+
+
+    function showForm(type)
+    {
+        if(type === 1)
+        {
+            $('#type').val('1');
+            $('#service_code').val('1479');
+            $('#service_box').hide();
+            $('#box1').attr('style','display:block!important');
+            $('#box2').attr('style','display:none!important');
+            $('#box3').attr('style','display:none!important');
+            $('#box4').attr('style','display:block!important');
+        }
+        else if (type == 2)
+        {
+         $('#type').val('2');
+         $('#service_code').val('1480');
+         $('#service_box').hide();
+         $('#box1').attr('style','display:none!important');
+         $('#box2').attr('style','display:block!important');
+         $('#box3').attr('style','display:none!important');
+         $('#box4').attr('style','display:block!important');
+     }
+     else if(type == 3)
+     {
+         $('#type').val('3');
+         $('#service_box').show();
+         $('#schedule_end').hide();
+         $('#box1').attr('style','display:none!important');
+         $('#box2').attr('style','display:none!important');
+         $('#box3').attr('style','display:block!important');
+         $('#box4').attr('style','display:block!important');
+     }
+     else{
+       $('#type').val("");
+       $('#service_box').hide();
+       $('#schedule_end').hide();
+       $('#box1').attr('style','display:block!important');
+       $('#box2').attr('style','display:block!important');
+       $('#box3').attr('style','display:block!important');
+       $('#box4').attr('style','display:none!important');
+   }
+}
+
+</script>
+
+</html>

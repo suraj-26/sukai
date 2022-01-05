@@ -8,14 +8,14 @@ class Orders extends Controller
     public function getOrderDetails()
     {
         $data = "";
-        $order_details = DB::select('SELECT *,(select group_concat(service_name,"||",service_type) from serveices sd where sd.id = od.package ) as details, (select name from users_master um where um.id = od.patient_id ) as patient, (select order_status from order_details odd where odd.order_id = od.id ) as status FROM `order_master` od');
+        $order_details = DB::select('SELECT *,(select group_concat(service_name,"||",service_type) from serveices sd where sd.id in (select service_id from order_details where order_id = od.id) ) as details, (select name from users_master um where um.id = od.patient_id ) as patient, (select order_status from order_details odd where odd.order_id = od.id ) as status, (select service_id from order_details odd where odd.order_id = od.id ) as service_id FROM `order_master` od');
         if(count($order_details)>0)
         {
             foreach($order_details as $row){
                 $detail = $row->details;
                 $details = explode('||', $detail);
                 $status = "PENDING";
-                $onclick = 'onclick="updateStatus('.$row->id.','.$row->package.','.$details[1].')"';
+                $onclick = 'onclick="updateStatus('.$row->id.','.$row->service_id.','.$details[1].')"';
                 if($row->status == 1)
                 {
                     $status = "COMPLETED";
@@ -24,11 +24,11 @@ class Orders extends Controller
                 $action  = '<button  class="btn btn-primary" '.$onclick.'>'.$status.'</button>';
                 $service_name = "";
                 if($details >= 1)
-                {   
+                {
                     $service_name = $details[0];
                     if($details[1] == '1')
                     {
-                        $action = '<button class="btn btn-primary" data-id="'.$row->id.'" data-service_id="'.$row->package.'" data-type="'.$details[1].'" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary" '.$onclick.'>'.$status.'</button>';
+                        $action = '<button class="btn btn-primary" data-id="'.$row->id.'" data-service_id="'.$row->service_id.'" data-type="'.$details[1].'" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary" '.$onclick.'>'.$status.'</button>';
                     }
                 }
                 $data .= '<tr>'
@@ -40,7 +40,7 @@ class Orders extends Controller
                 .'<td>'.$row->location.'</td>'
                 .'<td>'.$action.'</td>'
                 .'</tr>';
-            }   
+            }
         }
         return view('OrderDetails',array('data'=>$data));
     }

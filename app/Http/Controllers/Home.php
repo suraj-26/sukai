@@ -21,7 +21,7 @@ class Home extends Controller
     {
          $data = "";
          $id = session('id');
-        $order_details = DB::select('SELECT *,(select service_name from serveices sd where sd.id = od.package ) as details, (select name from users_master um where um.id = od.patient_id ) as patient, (select order_status from order_details odd where odd.order_id = od.id ) as status FROM `order_master` od where od.patient_id ='.$id.' ');
+        $order_details = DB::select('SELECT *,(select service_name from serveices sd where sd.id in (select service_id from order_details where order_id = od.id) ) as details, (select name from users_master um where um.id = od.patient_id ) as patient, (select order_status from order_details odd where odd.order_id = od.id ) as status FROM `order_master` od where od.patient_id ='.$id.' ');
         if(count($order_details)>0)
         {
             foreach($order_details as $row){
@@ -40,7 +40,7 @@ class Home extends Controller
                 .'<td>'.$row->location.'</td>'
                 .'<td><button class="btn '.$color.'">'.$status.'</button></td>'
                 .'</tr>';
-            }   
+            }
         }
         return view('web/OrderHistory',array('data'=>$data));
     }
