@@ -42,11 +42,11 @@
 .nurses_image{
     font-family: 'Rubik', sans-serif;
     font-size: 2.5rem;
-    top: 37%;
-    left: 8%;
+    top: 40%;
+    left: 5%;
 }
 .nurses_image span h1{
-    font-size: 4rem;
+    font-size: 5rem;
     line-height: .8;
 }
 .weare_text_details{
@@ -102,7 +102,7 @@
 #freecall_name input[placeholder="NAME"]{
     padding-left: 1.5rem;
 }
-#freecall_name, #freecall_location{ 
+#freecall_name, #freecall_location{
     padding-left: 16px;
 font-size: 15px;
 font-weight: 600;
@@ -244,8 +244,7 @@ font-weight: 600;
     color: gray;
 }
 .why_us, .we_are_commited_to{
-    font-size: 3rem;
-    /* color: #ea088b; */
+    font-size: 2.5rem;
     font-family: 'Rubik', sans-serif;
 }
 .s_a_h {
@@ -346,9 +345,9 @@ input#freecall_name:focus {
     }
 }
 @media only screen and (max-width: 450px) {
-     .we_are_doctor_image, .we_are_div_laptop{ 
+     .we_are_doctor_image, .we_are_div_laptop{
         display: none !important;
-    } 
+    }
     .thb300 {
         width: 100% !important;
     }

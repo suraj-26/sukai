@@ -65,19 +65,15 @@
     </div>
 
 </div>
-<div class="row mb-5">
-    <!-- Carousel for mobile  -->
 
-    <!-- at your home -->
-    <div class="col-md-4 px-0  d-none d-md-block">
-        <img src="{{ URL::asset('images/image.svg')}}" alt="" class="w-100" style="margin-top: -4px;">
-        <h3 class="nurses_image mb-0 position-absolute text-light"><span><h1 class="mb-0">Healthcare</h1></span>at your
-            Home
-        </h3>
+<div class="row mb-5">
+    <div class="col-md-12 p-0">
+        <img src="{{ URL::asset('images/front-image.jpg')}}" alt="" class="w-100">
+        <div class=" px-0  d-none d-md-block">
+            <h3 class="nurses_image mb-0 position-absolute text-light"><span><h1 class="mb-0">Healthcare</h1></span>at your Home</h3>
+        </div>
     </div>
-    <div class="col-md-8 px-0  d-none d-md-block">
-        <img src="{{ URL::asset('images/Healthcare-at-home (1).jpg')}}" class="w-100" style="height: 88.5%;" alt="">
-    </div>
+
 </div>
 <div class="container d-md-flex d-sm-block" style="margin-bottom: 7rem;">
     <div class="col-md-4 col-sm-12 text-center">
@@ -144,10 +140,10 @@
             </li>
             <li class="text-center text-dark s_way mb-4"><span class="s_way_icon px-3"
                                                                style="padding: 0.85rem 0.3rem"><i
-                        class="fas fa-hand-holding-medical"></i></span> Select Location
+                        class="fas fa-hand-holding-medical"></i></span> Select Services
             </li>
-            <li class="text-center text-dark t_way"><span class="t_way_icon" style="padding: 0.7rem 1.2rem;"><i
-                        class="far fa-calendar-alt"></i></span> Select Location
+            <li class="text-center text-dark t_way" style="padding-left: 50px"><span class="t_way_icon" style="padding: 0.7rem 1.2rem;"><i
+                        class="far fa-calendar-alt"></i></span> Enter Time and Date
             </li>
         </ul>
     </div>
@@ -333,7 +329,7 @@
             <div class="col-md-4">
                 <div class="s_a_h" style=" margin-top: 5rem;">
                     <div class="s_a_h_img"><img src="{{ URL::asset('images/nurse_and_tecnitian.PNG')}}" alt=""></div>
-                    <h3 style=" padding-top: 5rem; font-size: 1.4rem;">CERTIFICED NURSES</h3>
+                    <h3 style=" padding-top: 5rem; font-size: 1.4rem;">CERTIFIED NURSES</h3>
                     <p class="s_a_h_detail" style="padding-bottom:1rem;">Our nurses are certified and trained to ensure
                         you get the highest quality care</p>
                 </div>
