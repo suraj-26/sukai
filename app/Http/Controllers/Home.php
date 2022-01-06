@@ -80,12 +80,14 @@ class Home extends Controller
         ]);
 
         if($patient_update)
-        {       
+        {
+            session()->flash('success', 'User Data Updated Successfully');
             return redirect('User_Profile');
         }
         else
         {
-            return response(['body'=>'Data Not Updated'],201);
+            session()->flash('error', 'Something Went Wrong');
+            return redirect('User_Profile');
         }
     }
 
@@ -106,10 +108,11 @@ class Home extends Controller
             'location' => $location
         ]);
         if ($insert_enquiry) {
+            session()->flash('success', 'Enquiry Register for '.$name.'');
             return redirect('/');
         } else {
-            $response['status'] = 201;
-            $response['data'] = "Insertion Failed";
+            session()->flash('error', 'Something Went Wrong');
+            return redirect('/');
         }
     }
 }

@@ -34,6 +34,19 @@
 </style>
 <body>
 @include('web.web_header');
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        <i class="fas fa-exclamation-triangle"></i> {{ session('error') }}
+    </div>
+@endif
+@if (session('success'))
+    <div class="alert alert-success">
+        <i class="fas fa-clipboard-check"></i> {{ session('success') }}
+    </div>
+@endif
+
+
 <div class="header_mobile_carousel d-block d-md-none row mb-4">
     <div class="col-md-12">
         <div id="mobile_carousel" class="carousel slide" data-ride="carousel">

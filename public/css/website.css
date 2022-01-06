@@ -332,22 +332,18 @@ input#freecall_name:focus {
     outline: none !important;
     box-shadow: none !important;
 }
-@media only screen and (max-width: 1024px) {
-    .thb_text {
-        font-size: 17px;
-    }
-}
-@media only screen and (max-width:750px){
-    .nurse-at-home_div{
-        border-right: none !important;
-    }
-    .logo_mobile{
-        width: 75%;
-    }
-}
-@media only screen and (min-width: 1220px) {
+
+@media only screen and (min-width: 1350px) {
     .nurses_image span h1 {
         font-size: 5rem !important;
+    }
+}
+@media only screen and (max-width: 1220px) {
+    .nurses_image span h1 {
+        font-size: 3.5rem;
+    }
+    .book_now{
+        left:34%;
     }
 }
 @media only screen and (max-width: 1024px){
@@ -357,6 +353,9 @@ input#freecall_name:focus {
     .nurses_image {
         font-size: 2rem;
     }
+    .book_now{
+        left:31%;
+    }
 }
 @media only screen and (max-width: 900px){
     .nurses_image span h1 {
@@ -364,6 +363,45 @@ input#freecall_name:focus {
     }
     .nurses_image {
         font-size: 1.5rem;
+    }
+    .book_now{
+        left:28%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .thb_text {
+        font-size: 17px;
+    }
+}
+@media only screen and (max-width:768px){
+    .nurse-at-home_div{
+        border-right: none !important;
+    }
+    .logo_mobile{
+        width: 75%;
+    }
+    .book_now{
+        left:25%;
+    }
+}
+@media only screen and (max-width:688px){
+    .book_now{
+        left:21%;
+    }
+}
+@media only screen and (max-width:600px){
+    .book_now{
+        left:17%;
+    }
+}
+@media only screen and (max-width:550px){
+    .book_now{
+        left:13%;
+    }
+}
+@media only screen and (max-width:500px){
+    .book_now{
+        left:10%;
     }
 }
 

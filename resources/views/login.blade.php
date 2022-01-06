@@ -70,34 +70,47 @@
 </head>
 <body>
 @include('web.web_header')
+<div class="container-fluid full_container">
+    <form action="goLogin" method="POST">
+        @csrf
+        <div class="login_form ">
+            @if (session('error'))
+                <div class="alert alert-danger">
+                   <i class="fas fa-exclamation-triangle"></i> {{ session('error') }}
+                </div>
+            @endif
 
-
-    <div class="container-fluid full_container">
-        <form action="goLogin" method="POST">
-            @csrf
-            <div class="login_form ">
-                <div class="logo text-center mb-1">
-                    <img src="{{URL::asset('images/sukaii_logo.PNG')}}" alt="" width="22%" class="">
-                </div>
-                <h4 class="text-center mb-2">LOGIN</h4>
-                <div class="username">
-                    <label for="" class="username_lable mb-1"><h6 class="mb-1 pl-1">Email</h6></label>
-                    <input type="email" name="email" required class="user_name form-control mb-2">
-                </div>
-                <div class="password">
-                    <label for="" class="password_lable mb-1"><h6 class="mb-1 pl-1">Password</h6></label>
-                    <input type="password" name="password" required class="password_input form-control mb-4">
-                </div>
-                <button  class="btn btn-sign_in form-control mb-2"><h6 class="mb-0">Sign In</h6></button>
-{{--                <h6 class="float-right">Forget Password</h6>--}}
-                <div class="register">
-                    <p>Don't have an account? <a href="{{URL::to('signIn')}}" style="color: #ec098d;text-decoration: none"><b>REGISTER NOW !</b></a></p>
-                </div>
+            <div class="logo text-center mb-1">
+                <img src="{{URL::asset('images/sukaii_logo.PNG')}}" alt="" width="22%" class="">
             </div>
-        </form>
-    </div>
+            <h4 class="text-center mb-2">LOGIN</h4>
+            <div class="username">
+                <label for="" class="username_lable mb-1"><h6 class="mb-1 pl-1">Email</h6></label>
+                <input type="email" name="email" required class="user_name form-control mb-2">
+            </div>
+            <div class="password">
+                <label for="" class="password_lable mb-1"><h6 class="mb-1 pl-1">Password</h6></label>
+                <input type="password" name="password" required class="password_input form-control mb-4">
+            </div>
+            <button class="btn btn-sign_in form-control mb-2"><h6 class="mb-0">Sign In</h6></button>
+            {{--                <h6 class="float-right">Forget Password</h6>--}}
+            <div class="register">
+                <p>Don't have an account? <a href="{{URL::to('signIn')}}"
+                                             style="color: #ec098d;text-decoration: none"><b>REGISTER NOW !</b></a></p>
+            </div>
+        </div>
+    </form>
+</div>
 
 </div>
 @include('web.web_footer')
 </body>
 </html>
+<script>
+    $("document").ready(function(){
+        setTimeout(function(){
+            $("div.alert").remove();
+        }, 3000 ); // 5 secs
+
+    });
+</script>

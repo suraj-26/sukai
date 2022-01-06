@@ -108,13 +108,10 @@ class ServiceController extends Controller
 
         $package_det_insert = DB::table('order_details')->insert($arrOrderDet);
         if ($package_det_insert) {
-            $response['status'] = 200;
-            $response['data'] = 'Registered successfully';
-            $response['dta1'] = $arrOrderDet;
-            return redirect('/');
+            return redirect('User_Profile');
         } else {
-            $response['status'] = 201;
-            $response['data'] = 'Something went wrong';
+            session()->flash('error', 'Something Went Wrong');
+            return redirect('/');
         }
         echo json_encode($response);
     }

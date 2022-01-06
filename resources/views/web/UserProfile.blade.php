@@ -20,6 +20,17 @@
 </style>
 
 <div class="container-fluid">
+    @if (session('error'))
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-triangle"></i> {{ session('error') }}
+        </div>
+    @endif
+    @if (session('success'))
+        <div class="alert alert-success">
+            <i class="fas fa-clipboard-check"></i> {{ session('success') }}
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-md-12">
         </div>
@@ -37,21 +48,6 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @endif
-
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                     <form action="UpdateProfileDetails" method="POST">
                         @csrf
                         <input type="hidden" value="<?=$User['id']?>" name="id">

@@ -20,8 +20,6 @@
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-        <!--  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
               integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
               crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -135,5 +133,12 @@
 
     $('#closeBookModal').click(function () {
         $('#BookNoWErrorModal').toggle();
+    });
+
+    $("document").ready(function(){
+        setTimeout(function(){
+            $("div.alert").remove();
+        }, 3000 ); // 5 secs
+
     });
 </script>

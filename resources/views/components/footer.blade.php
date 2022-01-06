@@ -48,6 +48,13 @@
         $(this).addClass('active');
         console.log(1);
     });
+
+    $("document").ready(function(){
+        setTimeout(function(){
+            $("div.alert").remove();
+        }, 3000 ); // 5 secs
+
+    });
 </script>
 </body>
 </html>
