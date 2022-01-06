@@ -34,4 +34,23 @@ class Admin extends Controller
         }
         return view('PatientList',array('data'=>$data));
     }
+
+    public function getEnquiryList()
+    {
+        $data = "";
+        $enquiry = DB::select('SELECT * from user_enquiry');
+        if(count($enquiry)>0)
+        {
+            foreach($enquiry as $row){
+                $data .= '<tr>'
+                    .'<td>'.$row->name.'</td>'
+                    .'<td>'.$row->mobile.'</td>'
+                    .'<td>'.$row->location.'</td>'
+                    .'<td>'.$row->services.'</td>'
+                    .'</tr>';
+            }
+
+        }
+        return view('EnquiryList',array('data'=>$data));
+    }
 }

@@ -43,6 +43,7 @@ Route::post('UploadFile', [Orders::class, 'UploadFile']);
 Route::get('Dashboard', [Admin::class, 'dashboard']);
 Route::get('patient_list', [Admin::class, 'getPatientList']);
 Route::get('services', [ServiceController::class, 'getServicesList']);
+Route::get('enquiry', [Admin::class, 'getEnquiryList']);
 
 
 //////Home/////////

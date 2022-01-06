@@ -33,7 +33,7 @@
     }
 </style>
 <body>
-@include('web.web_header');
+@include('web.web_header')
 
 @if (session('error'))
     <div class="alert alert-danger">
@@ -405,20 +405,6 @@
         Reserved.</p>
 </div>
 </body>
-<script>
-    var toggle_menu_btn = document.getElementById('mobile_menu_btn');
-
-    function open_menu() {
-        console.log(1);
-        if (toggle_menu_btn.style.display == 'none' || toggle_menu_btn.style.display == "") {
-            toggle_menu_btn.style.display = "block";
-            console.log(2);
-        } else {
-            toggle_menu_btn.style.display = "none";
-            console.log(3);
-        }
-    };
-</script>
 
 
 <script>

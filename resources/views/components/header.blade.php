@@ -88,6 +88,9 @@
                     </li>
                     <li class="nav-link"><a class="nav-item" href="services"><i class="fas fa-clinic-medical"></i>
                             <span>Services</span></a></li>
+
+                    <li class="nav-link"><a class="nav-item" href="enquiry"><i class="fas fa-question-circle"></i>
+                            <span>Enquiries</span></a></li>
                 </ul>
             </aside>
         </div>

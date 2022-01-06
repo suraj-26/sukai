@@ -98,11 +98,12 @@
     </div>
     <div class="tab_mobile_nav  w-50" id="mobile_menu_btn" style="display: none;">
         <ul class="list-unstyled form-control">
-            <li class="border-0 form-control">HOME</li>
-            <li class="border-0 form-control">SERVICES</li>
-            <li class="border-0 form-control">FAQ</li>
-            <li class="border-0 form-control">PARTNERS</li>
-            <li class="border-0 form-control">ABOUT US</li>
+            <li class="border-0 form-control"><a href="{{URL::to('/')}}" class="text-dark">HOME</a></li>
+            <li class="border-0 form-control"><a href="#we_made_it" class="text-dark">SERVICES</a></li>
+            <li class="border-0 form-control"><a href="#" class="text-dark">FAQ</a></li>
+            <li class="border-0 form-control"><a href="#" class="text-dark">PARTNERS</a></li>
+            <li class="border-0 form-control"><a href="#recommeded_to_desktop" class="text-dark">ABOUT US</a></li>
+            <li class="border-0 form-control"><a href="{{URL::to('login')}}" class="text-dark">LOGIN</a></li>
         </ul>
     </div>
 </div>
@@ -141,4 +142,18 @@
         }, 3000 ); // 5 secs
 
     });
+</script>
+<script>
+    var toggle_menu_btn = document.getElementById('mobile_menu_btn');
+
+    function open_menu() {
+        console.log(1);
+        if (toggle_menu_btn.style.display == 'none' || toggle_menu_btn.style.display == "") {
+            toggle_menu_btn.style.display = "block";
+            console.log(2);
+        } else {
+            toggle_menu_btn.style.display = "none";
+            console.log(3);
+        }
+    };
 </script>
