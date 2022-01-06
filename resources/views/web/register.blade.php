@@ -1,6 +1,6 @@
 <style>
     .register a {
-        color: #ea088b;;
+        color: #ea088b;
     }
 
     .submit_btn button {
@@ -10,33 +10,30 @@
     .register_btn button {
         background-color: #949090;
     }
-
-    .address_btn {
-        text-align: end;
-        margin-top: 0.4rem;
+    .login_register{
+        width: 65%;
+        margin: auto;
     }
-
-    .address_btn button {
-        border: 1px solid;
-        border-radius: 5px;
+    .address_btn {
+        margin-top: 0.4rem;
+        border: 1px solid black !important;
+        outline: none !important;
     }
 </style>
-@include('web.web_header');
-<div class="container">
+@include('web.web_header')
+<div class="container-fluid px-0">
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <div class="login_register">
+        <div class="col-md-6 px-0">
+            <img src="{{URL::asset('images/registration_img.jpg')}}" width="100%" height="100%" alt="">
+        </div>
+        <div class="col-md-6" style="background-color:#ebf4fa;" >
+            <div class="login_register" >
                 <h5 class="mb-4 mt-5 text-center">REGISTER</h5>
                 <form action="goSignIn" method="POST">
                     @csrf
                     <div class="name mb-3">
                         <p class="mb-0"><b>NAME</b></p>
                         <input type="text" name="name" class="form-control">
-                    </div>
-                    <div class="user_name mb-3">
-                        <p class="mb-0"><b>USER NAME</b></p>
-                        <input type="text" name="user_name" class="form-control">
                     </div>
                     <div class="email mb-3">
                         <p class="mb-0"><b>EMAIL</b></p>
@@ -51,16 +48,8 @@
                         <input type="number" name="contact" class="form-control">
                     </div>
                     <div class="address mb-3">
-                        <p class="mb-0"><b>ADDRESS</b></p>
-                        <textarea name="address" id="address" class="form-control" cols="10" rows="3"></textarea>
-                        <div class="address_btn">
-                            <button type="button" onclick="load_data()">Get Address</button>
-                        </div>
-                    </div>
-                    <div class="alt_address mb-3">
-                        <p class="mb-0"><b>ALTERNET ADDRESS</b></p>
-                        <textarea name="alt_address" id="alt_address" class="form-control" cols="10"
-                                  rows="3"></textarea>
+                        <p class="mb-0"><b>ADDRESS</b> <span><button type="button" class="btn address_btn mb-1 ml-2" onclick="load_data()" style="padding: 0.15rem 0.75rem;">Address <span><i class="fas fa-map-marker-alt pl-2"></i></span></button></span></p>
+                        <textarea name="address" id="address" class="form-control" cols="10" rows="2"></textarea>
                     </div>
                     <div class="register">
                         <div class="register_btn my-4 text-center">
@@ -72,8 +61,8 @@
         </div>
     </div>
 
-
 </div>
+@include('web.web_footer')
 <div id="location_data"></div>
 <div id="map"></div>
 
@@ -171,7 +160,7 @@
 
                     var shortAddr = results[0]['address_components'][0]['long_name'] + ',' +
                         results[0]['address_components'][1]['long_name'] + ',' + results[0]['address_components'][2]['long_name'];
-                    $("#address1").val(shortAddr);
+                    $("#address").val(shortAddr);
                     //alert(shortAddr);
 
 

@@ -102,7 +102,7 @@
 #freecall_name input[placeholder="NAME"]{
     padding-left: 1.5rem;
 }
-#freecall_name, #freecall_location{ 
+#freecall_name, #freecall_location{
     padding-left: 16px;
 font-size: 15px;
 font-weight: 600;
@@ -345,10 +345,33 @@ input#freecall_name:focus {
         width: 75%;
     }
 }
+@media only screen and (min-width: 1220px) {
+    .nurses_image span h1 {
+        font-size: 5rem !important;
+    }
+}
+@media only screen and (max-width: 1024px){
+    .nurses_image span h1 {
+        font-size: 3rem;
+    }
+    .nurses_image {
+        font-size: 2rem;
+    }
+}
+@media only screen and (max-width: 900px){
+    .nurses_image span h1 {
+        font-size: 2.5rem;
+    }
+    .nurses_image {
+        font-size: 1.5rem;
+    }
+}
+
+
 @media only screen and (max-width: 450px) {
-     .we_are_doctor_image, .we_are_div_laptop{ 
+     .we_are_doctor_image, .we_are_div_laptop{
         display: none !important;
-    } 
+    }
     .thb300 {
         width: 100% !important;
     }

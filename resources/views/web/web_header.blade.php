@@ -34,7 +34,6 @@
     </head>
 </head>
 <body>
-    <header id="">
         <div class="align-items-center border-bottom row">
             <div class="col col-md-3 col-sm-6">
                 <img src="{{ URL::asset('images/sukaii_transparent_logo.png')}}" alt="Sukaii" class="p-2 logo_mobile">
@@ -50,11 +49,11 @@
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="{{URL::to('profile')}}" class="dropdown-item has-icon text-dark">
-                                <i class="fas fa-sign-out-alt"></i> Profile
+                                <i class="fas fa-user"></i> Profile
                             </a>
                             <div class="dropdown-divider"></div>
                             <a href="{{URL::to('Order_History')}}" class="dropdown-item has-icon text-dark">
-                                <i class="fas fa-sign-out-alt"></i> History
+                                <i class="fas fa-history"></i> History
                             </a>
                             <div class="dropdown-divider"></div>
                             <a href="{{URL::to('logout')}}" class="dropdown-item has-icon text-dark">
@@ -65,7 +64,7 @@
                     @else
                     <li class="login_row_list px-3"><a href="{{URL::to('login')}}">Login/Signup</a></li>
                     @endif
-                    <li class="login_row_list px-3"><span class="p-2"><i class="fas fa-map-marker-alt"></i></span>Bangkok</li>
+                    <li class="login_row_list align-items-baseline d-flex"><span class="p-2"><i class="fas fa-map-marker-alt"></i></span><p id="country"></p></li>
                 </ul>
 
 
@@ -95,6 +94,41 @@
             </ul>
         </div>
     </div>
-</header>
+
+
+{{--        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">--}}
+{{--            Launch demo modal--}}
+{{--        </button>--}}
+
+        <!-- Modal -->
+        <div class="modal" id="BookNoWErrorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Login Request</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Please login First
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light border-primary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
+<script>
+    $.ajax({
+        url: "https://geolocation-db.com/jsonp",
+        jsonpCallback: "callback",
+        dataType: "jsonp",
+        success: function(location) {
+            $('#country').html(location.country_name);
+        }
+    });
+</script>

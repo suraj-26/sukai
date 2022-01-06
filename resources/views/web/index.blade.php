@@ -509,10 +509,9 @@
             $('#box4').attr('style', 'display:none!important');
         }
         @else
-        alert('You Need to Login First');
+        $('#BookNoWErrorModal').toggle();
         @endif
     }
-
 </script>
 
 </html>

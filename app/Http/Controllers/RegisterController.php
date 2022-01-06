@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -14,19 +15,18 @@ class RegisterController extends Controller
 
     public function goSignIn(Request $req){
         $response = array();
-        $userExists = DB::table('users_master')->where("user_name",$req->input('user_name'))->orWhere('email', $req->input('email'))->where('status',1)->first();
+        $userExists = DB::table('users_master')->Where('email', $req->input('email'))->where('status',1)->first();
         if(empty($userExists)){
+            $password = $req->input('password');
+            $hashedPassword = Hash::make($password);
             $patient_insert = DB::table('users_master')->insert([
                 'name' => $req->input('name'),
-                'user_name' => $req->input('user_name'),
                 'email' => $req->input('email'),
-                'password' => $req->input('password'),
+                'password' => $hashedPassword,
                 'contact' => $req->input('contact'),
                 'address' => $req->input('address'),
-                'alt_address' => $req->input('alt_address'),
                 'status' => 1,
                 'create_on' => Date('Y-m-d H:i:s'),
-                'create_by' => $req->input('contact'),
                 'user_type' => 2
             ]);
             if($patient_insert){

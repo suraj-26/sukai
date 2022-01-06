@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class Orders extends Controller
 {
@@ -91,26 +92,26 @@ class Orders extends Controller
         $type = $request->input('type');
         $file = $request->file('report');
 
-        echo 'File Name: '.$file->getClientOriginalName();
-        echo '<br>';
-
-        echo 'File Extension: '.$file->getClientOriginalExtension();
-        echo '<br>';
-
-        echo 'File Real Path: '.$file->getRealPath();
-        echo '<br>';
-
-        echo 'File Size: '.$file->getSize();
-        echo '<br>';
-
-        echo 'File Mime Type: '.$file->getMimeType();
-        echo '<br>';
+//        echo 'File Name: '.$file->getClientOriginalName();
+//        echo '<br>';
+//
+//        echo 'File Extension: '.$file->getClientOriginalExtension();
+//        echo '<br>';
+//
+//        echo 'File Real Path: '.$file->getRealPath();
+//        echo '<br>';
+//
+//        echo 'File Size: '.$file->getSize();
+//        echo '<br>';
+//
+//        echo 'File Mime Type: '.$file->getMimeType();
+//        echo '<br>';
         $file->move(base_path('\uploads'),$file->getClientOriginalName());
 
         $uploadFile =  DB::table('order_details')->where('order_id', $id)->where('service_id',$service_id)->update(['report' => $file->getClientOriginalName()]);
         if($uploadFile)
         {
-            echo "File Uploaded to Server";
+            return Redirect::to('orders_list');
         }
         else
         {

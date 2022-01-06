@@ -26,20 +26,26 @@ class Home extends Controller
         if(count($order_details)>0)
         {
             foreach($order_details as $row){
+                if($row->end_date != "" && $row->end_date != null)
+                {
+                    $date = '<div class="badge badge-secondary">'.$row->start_date.'</div> - &nbsp;<div class="badge badge-secondary">'.$row->end_date.'</div>';
+                }
+                else{
+                    $date = '<div class="badge badge-secondary">'.$row->start_date.'</div>';
+                }
                 $status = "PENDING";
-               $color = "btn-danger";
+               $color = "badge-danger";
                 if($row->order_status == 1)
                 {
                     $status = "COMPLETED";
-                    $color = "btn-success";
+                    $color = "badge-success";
                 }
                 $data .= '<tr>'
                 .'<td>'.$row->patient_name.'</td>'
                 .'<td>'.$row->service_name.'</td>'
-                .'<td>'.$row->start_date.'</td>'
-                .'<td>'.$row->end_date.'</td>'
+                .'<td>'.$date.'</td>'
                 .'<td>'.$row->location.'</td>'
-                .'<td><button class="btn '.$color.'">'.$status.'</button></td>'
+                .'<td><div class="badge '.$color.'">'.$status.'</div></td>'
                 .'</tr>';
             }
         }

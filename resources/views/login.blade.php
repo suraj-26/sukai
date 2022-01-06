@@ -17,58 +17,96 @@
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap/bootstrap.css')}}">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <style>
-        .register a{
-            color: #ea088b;;
+        .full_container {
+            background-image: url('images/login_image_2.jpg');
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* background-attachment */
         }
-        .submit_btn button{
-            background-color: #ea088b;
+
+        .login_form {
+            width: 30%;
+            float: right;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1%;
+            position: absolute;
+            top: 28%;
+            right: 10%;
+            min-width: 430px;
         }
-        .register_btn button{
-            background-color: #949090;
+
+        .btn-sign_in {
+            background: #06b5b991 !important;
+        }
+
+
+        /* header  */
+
+
+        @media (max-width: 800px) {
+            .login_form {
+                right: 3%;
+                min-width: 400px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .login_form {
+                top: 20%;
+                padding: 3%;
+
+                min-width: 400px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .login_form {
+                top: 20%;
+                padding: 3%;
+                min-width: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    @include('web.web_header');
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="login_register">
-                    <h5 class="mb-4 text-center">LOGIN / REGISTER</h5>
-                    <form action="goLogin" method="POST">
-                     @csrf
-                     <div class="user_name mb-3">
-                        <p class="mb-0"><b>USER NAME</b></p>
-                        <input type="text" name="username" required id="username" class="form-control">
-                    </div>
-                    <div class="password">
-                        <p class="mb-0"><b>PASSWORD</b></p>
-                        <input type="password" name="password" required id="password" class="form-control">
-                        <p class="float-right mb-0"><b><a href="#">forget password</a></b></p>
-                    </div>
-                    <div class="reminder">
-                        <input type="checkbox" id="reminde_me" name="reminder" value=""> 
-                        <label for="reminde_me" class="mb-0"><b>Remember Password</b></label><br>
+@include('web.web_header');
 
-                    </div>
-                    <div class="submit_btn my-4 text-center">
-                       <input type="submit" value="Login" class="btn btn-dark ">
-                   </div>
-               </form>
-               <div class="register">
-                <p>Don’t have an account? <a href="{{URL::to('signIn');}}" ><b>Register NOW !</b></a></p>
+
+    <div class="container-fluid full_container">
+        <form action="goLogin" method="POST">
+            @csrf
+            <div class="login_form ">
+                <div class="logo text-center mb-1">
+                    <img src="{{URL::asset('images/sukaii_logo.PNG')}}" alt="" width="22%" class="">
+                </div>
+                <h4 class="text-center mb-2">LOGIN</h4>
+                <div class="username">
+                    <label for="" class="username_lable mb-1"><h6 class="mb-1 pl-1">Email</h6></label>
+                    <input type="email" name="email" required class="user_name form-control mb-2">
+                </div>
+                <div class="password">
+                    <label for="" class="password_lable mb-1"><h6 class="mb-1 pl-1">Password</h6></label>
+                    <input type="password" name="password" required class="password_input form-control mb-4">
+                </div>
+                <button  class="btn btn-sign_in form-control mb-2"><h6 class="mb-0">Sign In</h6></button>
+{{--                <h6 class="float-right">Forget Password</h6>--}}
+                <div class="register">
+                    <p>Don't have an account? <a href="{{URL::to('signIn')}}" style="color: #ec098d;text-decoration: none"><b>REGISTER NOW !</b></a></p>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
-    <div class="col-md-1"></div>
-</div>
-
 
 </div>
+@include('web.web_footer')
 </body>
 </html>
