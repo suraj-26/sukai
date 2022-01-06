@@ -19,37 +19,50 @@ class Home extends Controller
 
     public function UserOrderHistory()
     {
-         $data = "";
-         $id = session('id');
+        $data = "";
+        $id = session('id');
 //        $order_details = DB::select('SELECT *,(select service_name from serveices sd where sd.id in (select service_id from order_details where order_id = od.id) ) as details, (select name from users_master um where um.id = od.patient_id ) as patient, (select order_status from order_details odd where odd.order_id = od.id ) as status FROM `order_master` od where od.patient_id ='.$id.' ');
-        $order_details = DB::select('SELECT *,(SELECT service_name from serveices where id = od.service_id) as service_name FROM order_details od INNER JOIN order_master om ON od.order_id=om.id where om.patient_id ='.$id.' ');
-        if(count($order_details)>0)
-        {
-            foreach($order_details as $row){
-                if($row->end_date != "" && $row->end_date != null)
-                {
-                    $date = '<div class="badge badge-secondary">'.$row->start_date.'</div> - &nbsp;<div class="badge badge-secondary">'.$row->end_date.'</div>';
-                }
-                else{
-                    $date = '<div class="badge badge-secondary">'.$row->start_date.'</div>';
+        $order_details = DB::select('SELECT *,(SELECT service_name from serveices where id = od.service_id) as service_name FROM order_details od INNER JOIN order_master om ON od.order_id=om.id where om.patient_id =' . $id . ' ');
+        if (count($order_details) > 0) {
+            foreach ($order_details as $row) {
+                if ($row->end_date != "" && $row->end_date != null) {
+                    $date = '<div class="badge badge-secondary">' . $row->start_date . '</div> - &nbsp;<div class="badge badge-secondary">' . $row->end_date . '</div>';
+                } else {
+                    $date = '<div class="badge badge-secondary">' . $row->start_date . '</div>';
                 }
                 $status = "PENDING";
-               $color = "badge-danger";
-                if($row->order_status == 1)
-                {
+                $color = "badge-danger";
+                if ($row->order_status == 1) {
                     $status = "COMPLETED";
                     $color = "badge-success";
                 }
                 $data .= '<tr>'
-                .'<td>'.$row->patient_name.'</td>'
-                .'<td>'.$row->service_name.'</td>'
-                .'<td>'.$date.'</td>'
-                .'<td>'.$row->location.'</td>'
-                .'<td><div class="badge '.$color.'">'.$status.'</div></td>'
-                .'</tr>';
+                    . '<td>' . $row->patient_name . '</td>'
+                    . '<td>' . $row->service_name . '</td>'
+                    . '<td>' . $date . '</td>'
+                    . '<td>' . $row->location . '</td>'
+                    . '<td><div class="badge ' . $color . '">' . $status . '</div></td>'
+                    . '</tr>';
             }
         }
-        return view('web/OrderHistory',array('data'=>$data));
+
+        $user_details = DB::table('users_master')->where(array('id' => $id))->first();
+        $userData = array();
+        if ($user_details != null) {
+            $userData = array(
+                'id'=>$user_details->id,
+                'name' => $user_details->name,
+                'email' => $user_details->email,
+                'contact' => $user_details->contact,
+                'address' => $user_details->address
+            );
+        }
+        return view('web/UserProfile', array('data' => $data,'User'=>$userData));
+    }
+
+    public function UpdateProfileDetails(Request $req)
+    {
+
     }
 
 
@@ -62,18 +75,15 @@ class Home extends Controller
         $patient_id = session('id');
 
         $insert_enquiry = DB::table('user_enquiry')->insert([
-            'patient_id'=> $patient_id,
+            'patient_id' => $patient_id,
             'name' => $name,
             'mobile' => $mobile,
             'services' => $services,
             'location' => $location
         ]);
-        if($insert_enquiry)
-        {
+        if ($insert_enquiry) {
             return redirect('/');
-        }
-        else
-        {
+        } else {
             $response['status'] = 201;
             $response['data'] = "Insertion Failed";
         }
