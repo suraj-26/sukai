@@ -11,12 +11,9 @@ class Orders extends Controller
     public function getOrderDetails()
     {
         $data = "";
-//        $order_details = DB::select('SELECT *,(select group_concat(service_name,"||",service_type) from serveices sd where sd.id in (select service_id from order_details where order_id = od.id) ) as details, (select name from users_master um where um.id = od.patient_id ) as patient, (select order_status from order_details odd where odd.order_id = od.id ) as status, (select service_id from order_details odd where odd.order_id = od.id ) as service_id FROM `order_master` od');
         $order_details = DB::select('SELECT *,(SELECT service_name from serveices where id = od.service_id) as service_name,(SELECT service_type from serveices where id = od.service_id) as service_type, (SELECT name from users_master where id = od.patient_id) as name FROM order_details od INNER JOIN order_master om ON od.order_id=om.id');
         if (count($order_details) > 0) {
             foreach ($order_details as $row) {
-//                $detail = $row->details;
-//                $details = explode('||', $detail);
                 $status = "PENDING";
                 $onclick = 'onclick="updateStatus(' . $row->id . ',' . $row->service_id . ',' . $row->service_type . ')"';
                 if ($row->order_status == 1) {
@@ -25,13 +22,10 @@ class Orders extends Controller
                 }
                 $action = '<button  class="btn btn-primary" ' . $onclick . '>' . $status . '</button>';
                 $service_name = "";
-//                if($details >= 1)
-//                {
                 $service_name = $row->service_name;
                 if ($row->service_type == '1') {
                     $action = '<button class="btn btn-primary" data-id="' . $row->id . '" data-service_id="' . $row->service_id . '" data-type="' . $row->service_type . '" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary" ' . $onclick . '>' . $status . '</button>';
                 }
-//                }
                 $data .= '<tr>'
                     . '<td>' . $row->name . '</td>'
                     . '<td>' . $row->patient_name . '</td>'
@@ -92,6 +86,8 @@ class Orders extends Controller
         $service_id = $request->input('service_id');
         $type = $request->input('type');
         $file = $request->file('report');
+        $filename = $file->getClientOriginalName();
+        $name = time().$filename;
 
 //        echo 'File Name: '.$file->getClientOriginalName();
 //        echo '<br>';
@@ -107,7 +103,7 @@ class Orders extends Controller
 //
 //        echo 'File Mime Type: '.$file->getMimeType();
 //        echo '<br>';
-        $file->move(base_path('/uploads'), $file->getClientOriginalName());
+        $file->move(base_path('/uploads'),$name);
 
         $uploadFile = DB::table('order_details')->where('order_id', $id)->where('service_id', $service_id)->update(['report' => $file->getClientOriginalName()]);
         if ($uploadFile) {

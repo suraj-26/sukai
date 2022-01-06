@@ -36,29 +36,36 @@
                     @csrf
                     <div class="name mb-3">
                         <p class="mb-0"><b>NAME</b></p>
-                        <input type="text" name="name" class="form-control">
+                        <input type="text" name="name" required class="form-control">
                     </div>
                     <div class="email mb-3">
                         <p class="mb-0"><b>EMAIL</b></p>
-                        <input type="email" name="email" class="form-control">
+                        <input type="email" name="email" required class="form-control">
                     </div>
                     <div class="password mb-3">
                         <p class="mb-0"><b>PASSWORD</b></p>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password" required class="form-control">
                     </div>
                     <div class="contact mb-3">
                         <p class="mb-0"><b>CONTACT</b></p>
-                        <input type="number" name="contact" class="form-control">
+                        <input type="number" name="contact" required class="form-control">
                     </div>
                     <div class="address mb-3">
                         <p class="mb-0"><b>ADDRESS</b> <span><button type="button" class="btn address_btn mb-1 ml-2" onclick="load_data()" style="padding: 0.15rem 0.75rem;">Address <span><i class="fas fa-map-marker-alt pl-2"></i></span></button></span></p>
-                        <textarea name="address" id="address" class="form-control" cols="10" rows="2"></textarea>
+                        <textarea name="address" id="address" required class="form-control" cols="10" rows="2"></textarea>
                     </div>
                     <div class="register">
                         <div class="register_btn my-4 text-center">
                             <input type="submit" value="Register" class="btn btn-dark">
                         </div>
                     </div>
+
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-triangle"></i> {{ session('error') }}
+                        </div>
+                    @endif
+
                 </form>
             </div>
         </div>

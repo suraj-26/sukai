@@ -34,13 +34,13 @@ class RegisterController extends Controller
                 $response['data']='Registered successfully';
                 return Redirect::to('login');
             }else{
-                $response['status']=201;
-                $response['data']='Something went wrong';
+                session()->flash('error','Something Went Wrong');
+                return redirect('signIn');
             }
 
         }else{
-            $response['status']=201;
-            $response['data']='Patient already exists';
+            session()->flash('error','User Email Already Exists');
+            return redirect('signIn');
         }
         echo json_encode($response);
     }

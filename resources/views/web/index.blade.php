@@ -81,7 +81,7 @@
 
 <div class="row mb-5">
     <div class="col-md-12 p-0">
-        <img src="{{ URL::asset('images/front-image.jpg')}}" alt="" class="w-100">
+        <img src="{{ URL::asset('images/front-image.jpg')}}" alt="" class="d-md-block d-none w-100">
         <div class=" px-0  d-none d-md-block">
             <h3 class="nurses_image mb-0 position-absolute text-light"><span><h1 class="mb-0">Healthcare</h1></span>at
                 your Home
@@ -103,7 +103,7 @@
         <p class="text-justify text-dark">Our proprietary Sukaii Report also makes your health check results easy to
             read and understand. <b>Read more...</b></p>
     </div>
-    <div class="col-md-4 col-sm-12 thb300_fpr_laptop">
+    <div class="col-md-4 pr-0 col-sm-12 thb300_fpr_laptop">
         <div class="mb-4 mb-lg-3 row thb300" style="margin: auto; width: 100%;">
             <h4 class="thb_text">FULL BODY CHECK UP ONLY AT</h4>
             <h1 class="thb_300"><span>THB300</span></h1>
