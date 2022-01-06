@@ -136,7 +136,7 @@ font-weight: 600;
     font-family: 'Rubik', sans-serif;
 }
 .book_now {
-    min-width: 357px;
+    min-width: 335px;
     max-width: 405px;
     width: 32%;
     margin: auto;
@@ -145,7 +145,7 @@ font-weight: 600;
     position: absolute;
     font-family: 'Rubik', sans-serif;
     top: -10%;
-    left: 38%;
+    left: 39%;
 }
 
 .we_made_it {
@@ -418,7 +418,7 @@ input#freecall_name:focus {
         right: 1% !important;
     }
     .t_way{
-        padding-left: 0%;
+        padding-left: 0%!important;
     }
     .book_now {
         width: 90%;
