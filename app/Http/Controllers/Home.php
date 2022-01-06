@@ -50,19 +50,43 @@ class Home extends Controller
         $userData = array();
         if ($user_details != null) {
             $userData = array(
-                'id'=>$user_details->id,
+                'id' => $user_details->id,
                 'name' => $user_details->name,
                 'email' => $user_details->email,
                 'contact' => $user_details->contact,
                 'address' => $user_details->address
             );
         }
-        return view('web/UserProfile', array('data' => $data,'User'=>$userData));
+        return view('web/UserProfile', array('data' => $data, 'User' => $userData));
     }
 
     public function UpdateProfileDetails(Request $req)
     {
+        $req->validate(
+            [
+                'name' => "required",
+                'mobile' => "mobile",
+                'address' => "required",
+            ],
+        );
 
+        $id = $req->input('id');
+
+        $patient_update = DB::table('users_master')->where(['id' => $id])->update([
+            'name' => $req->input('name'),
+            'email' => $req->input('email'),
+            'contact' => $req->input('contact'),
+            'address' => $req->input('address'),
+        ]);
+
+        if($patient_update)
+        {       
+            return redirect('User_Profile');
+        }
+        else
+        {
+            return response(['body'=>'Data Not Updated'],201);
+        }
     }
 
 

@@ -37,6 +37,21 @@
 
             <div class="row">
                 <div class="col-md-12">
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form action="UpdateProfileDetails" method="POST">
                         @csrf
                         <input type="hidden" value="<?=$User['id']?>" name="id">
@@ -46,7 +61,7 @@
                         </div>
                         <div class="email mb-3">
                             <p class="mb-0"><b>EMAIL</b></p>
-                            <input type="email"name="email" value="<?=$User['email']?>"  class="form-control">
+                            <input type="email"name="email" readonly value="<?=$User['email']?>"  class="form-control">
                         </div>
                         <div class="contact mb-3">
                             <p class="mb-0"><b>CONTACT</b></p>
