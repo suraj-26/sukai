@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class Orders extends Controller
 {
@@ -26,14 +27,16 @@ class Orders extends Controller
                 if ($row->service_type == '1') {
                     $action = '<button class="btn btn-primary" data-id="' . $row->id . '" data-service_id="' . $row->service_id . '" data-type="' . $row->service_type . '" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary" ' . $onclick . '>' . $status . '</button>';
                 }
+                $download = URL::to("uploads/".$row->report);
                 $data .= '<tr>'
+                    . '<td>' . $row->order_id . '</td>'
                     . '<td>' . $row->name . '</td>'
                     . '<td>' . $row->patient_name . '</td>'
                     . '<td>' . $service_name . '</td>'
                     . '<td>' . $row->start_date . '</td>'
                     . '<td>' . $row->end_date . '</td>'
                     . '<td>' . $row->location . '</td>'
-                    . '<td>' . $row->report . '</td>'
+                    . '<td><a href="'.$download.'" download><i class="fas fa-download"></i></a></td>'
                     . '<td>' . $action . '</td>'
                     . '</tr>';
             }

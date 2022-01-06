@@ -88,6 +88,7 @@
                                 <th scope="col">Service Name</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Location</th>
+                                <th>Reports</th>
                                 <th scope="col">Status</th>
                             </tr>
                             </thead>

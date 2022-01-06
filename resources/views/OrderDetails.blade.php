@@ -28,6 +28,7 @@
 				<table id="order_details" class="table table-hover">
 					<thead>
 						<tr>
+                            <td>Order Id</td>
 							<td>Patient Name</td>
 							<td>Customer Name</td>
 							<td>Service Name</td>
