@@ -1,4 +1,7 @@
 <style>
+    *{
+        font-family: 'Lato', sans-serif;
+    }
     .register a {
         color: #ea088b;
     }
@@ -28,7 +31,7 @@
         </div>
         <div class="col-md-6" style="background-color:#ebf4fa;" >
             <div class="login_register" >
-                <h5 class="mb-4 mt-5 text-center">REGISTER</h5>
+                <h5 class="mb-4 mt-5 text-center" style="font-family: 'Rubik', sans-serif;">REGISTER</h5>
                 <form action="goSignIn" method="POST">
                     @csrf
                     <div class="name mb-3">

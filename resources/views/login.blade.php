@@ -1,12 +1,3 @@
-<!-- <form action="goLogin" method="POST">
-    @csrf
-    <input type="text" name="username" id="username">
-    <input type="password" name="password" id="password">
-    <input type="submit" id="submit" name="submit" value="Login">
-</form>
-
-
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +16,7 @@
         .full_container {
             background-image: url('images/login_image_2.jpg');
             width: 100%;
-            height: 100vh;
+            height: calc(100vh - 12vh);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -78,7 +69,7 @@
     </style>
 </head>
 <body>
-@include('web.web_header');
+@include('web.web_header')
 
 
     <div class="container-fluid full_container">
