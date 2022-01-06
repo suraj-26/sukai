@@ -167,7 +167,7 @@
                                                                style="padding: 0.85rem 0.3rem"><i
                         class="fas fa-hand-holding-medical"></i></span> Select Services
             </li>
-            <li class="text-center text-dark t_way" style="padding-left: 50px"><span class="t_way_icon"
+            <li class="text-center text-dark t_way" style="padding-left: 45px"><span class="t_way_icon"
                                                                                      style="padding: 0.7rem 1.2rem;"><i
                         class="far fa-calendar-alt"></i></span> Enter Time and Date
             </li>
