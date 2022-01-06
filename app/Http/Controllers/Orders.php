@@ -36,7 +36,7 @@ class Orders extends Controller
                     . '<td>' . $row->start_date . '</td>'
                     . '<td>' . $row->end_date . '</td>'
                     . '<td>' . $row->location . '</td>'
-                    . '<td><a href="'.$download.'" download>' . $row->report . '</a></td>'
+                    . '<td><a href="'.$download.'" download><i class="fas fa-download"></i></a></td>'
                     . '<td>' . $action . '</td>'
                     . '</tr>';
             }
