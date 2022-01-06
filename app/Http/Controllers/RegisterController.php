@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class RegisterController extends Controller
 {
     public function signIn(){
-        return view('signIn');
+        return view('web/register');
     }
-    
+
     public function goSignIn(Request $req){
         $response = array();
         $userExists = DB::table('users_master')->where("user_name",$req->input('user_name'))->orWhere('email', $req->input('email'))->where('status',1)->first();
@@ -31,11 +32,12 @@ class RegisterController extends Controller
             if($patient_insert){
                 $response['status']=200;
                 $response['data']='Registered successfully';
+                return Redirect::to('login');
             }else{
                 $response['status']=201;
                 $response['data']='Something went wrong';
             }
-            
+
         }else{
             $response['status']=201;
             $response['data']='Patient already exists';
