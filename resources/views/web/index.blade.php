@@ -100,19 +100,19 @@
             <div class="row">
                 <div class="freecall_div border-dark p-2 form-control ">
                     <span><i class="fas fa-user freecall_name_icon"></i></span>
-                    <input type="text" name="Name" class="border-0 pl-4" placeholder="Enter Your Name"
+                    <input type="text" required name="Name" class="border-0 pl-4" placeholder="Enter Your Name"
                            id="freecall_name">
                 </div>
 
                 <div class="freecall_div border-dark p-2 form-control ">
                     <span><i class="fas fa-user freecall_name_icon"></i></span>
-                    <input type="text" name="mobile" class="border-0 pl-4" style="outline: none"
+                    <input type="text" required name="mobile" class="border-0 pl-4" style="outline: none"
                            placeholder="Enter your Mobile No" id="freecall_mobile">
                 </div>
 
                 <div class="freecall_div border-dark form-control py-0">
                     <span><i class="fas fa-map-marker-alt freecall_name_icon"></i></span>
-                    <select name="services" id="freecall_services" placeholder="Services"
+                    <select name="services" id="freecall_services" required placeholder="Services"
                             class="border-0 form-control py-0">
                         <option disabled class="form-control">Select Services</option>
                         <option value="Nursing Services" class="form-control">Nursing Services</option>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="freecall_div border-dark form-control py-0">
                     <span><i class="fas fa-heartbeat freecall_name_icon"></i></span>
-                    <select name="location" id="freecall_service" class="border-0 form-control py-0">
+                    <select name="location" id="freecall_service" required class="border-0 form-control py-0">
                         <option disabled class="form-control">select Location</option>
                         <option value="MUMBAI" class="form-control">MUMBAI</option>
                         <option value="GUJRAT" class="form-control">GUJRAT</option>
@@ -130,7 +130,7 @@
                         <option value="SIKKIM" class="form-control">SIKKIM</option>
                     </select>
                 </div>
-                <div class="border call_btn     m-auto px-3 py-2">
+                <div class="border call_btn m-auto px-3 py-2">
                     <button class="btn book_services_btn text-light"><h3 class="mb-0">BOOK NOW</h3></button>
                 </div>
             </div>
@@ -171,7 +171,7 @@
             <div class="" style="width: 100%; margin: auto;">
                 <h2 class="Nurse_at_home_text text-center">HEALTH CHECK</h2>
                 <div class="book_btn text-center">
-                    <button type="button" onclick="showForm(1)" class="btn book_services_btn text-light">BOOK</button>
+                    <button id="btn1" type="button" onclick="showForm(1)" class="btn book_services_btn text-light">BOOK</button>
                 </div>
             </div>
         </div>
@@ -183,7 +183,7 @@
             <div class="" style="width: 100%; margin: auto;">
                 <h2 class="Nurse_at_home_text text-center">NURSE CARE</h2>
                 <div class="book_btn text-center">
-                    <button type="button" onclick="showForm(2)" class="btn book_services_btn text-light">BOOK</button>
+                    <button id="btn2" type="button" onclick="showForm(2)" class="btn book_services_btn text-light">BOOK</button>
                 </div>
             </div>
         </div>
@@ -193,7 +193,7 @@
             <div class="" style="width: 100%; margin: auto;">
                 <h2 class="LAB_TEST_AT_HOME_text text-center">COVID TEST</h2>
                 <div class="book_btn text-center">
-                    <button type="button" onclick="showForm(3)" class="btn book_services_btn text-light">BOOK</button>
+                    <button id="btn3" type="button" onclick="showForm(3)" class="btn book_services_btn text-light">BOOK</button>
                 </div>
             </div>
         </div>
@@ -476,6 +476,7 @@
     function showForm(type) {
         @if(session()->has('id'))
         if (type === 1) {
+            $('#btn1').hide();
             $('#type').val('1');
             $('#service_code').val('1479');
             $('#service_box').hide();
@@ -484,6 +485,7 @@
             $('#box3').attr('style', 'display:none!important');
             $('#box4').attr('style', 'display:block!important');
         } else if (type == 2) {
+            $('#btn2').hide();
             $('#type').val('2');
             $('#service_code').val('1480');
             $('#service_box').hide();
@@ -492,6 +494,7 @@
             $('#box3').attr('style', 'display:none!important');
             $('#box4').attr('style', 'display:block!important');
         } else if (type == 3) {
+            $('#btn3').hide();
             $('#type').val('3');
             $('#service_box').show();
             $('#schedule_end').hide();
@@ -500,6 +503,9 @@
             $('#box3').attr('style', 'display:block!important');
             $('#box4').attr('style', 'display:block!important');
         } else {
+            $('#btn1').show();
+            $('#btn2').show();
+            $('#btn3').show();
             $('#type').val("");
             $('#service_box').hide();
             $('#schedule_end').hide();

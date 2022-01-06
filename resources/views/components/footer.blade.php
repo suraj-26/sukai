@@ -42,6 +42,12 @@
 <!-- Template JS File -->
 <script src="{{ URL::asset('js/scripts.js') }}"></script>
 <script src="{{ URL::asset('js/custom.js') }}"></script>
-
+<script>
+    $(".main-sidebar .sidebar-menu .nav-link a").on('click', function () {
+        $('.main-sidebar .sidebar-menu .nav-link').removeClass('active');
+        $(this).addClass('active');
+        console.log(1);
+    });
+</script>
 </body>
 </html>

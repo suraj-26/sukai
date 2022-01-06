@@ -45,9 +45,9 @@
                     <ul class="d-flex float-right list-unstyled mb-2">
                       @if(session()->has('name'))
                       <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle text-dark nav-link-lg nav-link-user">
-                        <div class="d-sm-none d-lg-inline-block"><?=session('name')?></div></a>
+                        <div class="d-sm-none d-lg-inline-block" style="font-weight: 600;color: #e9088a"><?=session('name')?></div></a>
 
-                        <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-menu dropdown-menu-right" style="font-size: 12px;">
                             <a href="{{URL::to('profile')}}" class="dropdown-item has-icon text-dark">
                                 <i class="fas fa-user"></i> Profile
                             </a>
@@ -62,7 +62,7 @@
                         </div>
                     </li>
                     @else
-                    <li class="login_row_list px-3"><a href="{{URL::to('login')}}">Login/Signup</a></li>
+                    <li class="login_row_list px-3" style="margin-top: 8px;"><a style="color: #e9088a;text-decoration: none;font-weight: 600" href="{{URL::to('login')}}">Login/Signup</a></li>
                     @endif
                     <li class="login_row_list align-items-baseline d-flex"><span class="p-2"><i class="fas fa-map-marker-alt"></i></span><p id="country"></p></li>
                 </ul>

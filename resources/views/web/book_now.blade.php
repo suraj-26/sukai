@@ -58,9 +58,9 @@
         </div>
     </div>
     <div class="mt-4 text-center">
-        <input type="submit" class="border-light btn font-weight-bold" value="Book Now" style="background-color:#a7a5a5;">
+            <input type="submit" class="border-light btn font-weight-bold" value="Book Now" style="background-color: #ea088b;color: white;">
 
-        <button type="button" class="btn btn-dark" onclick="showForm(4)">Cancel</button>
+        <button type="button" class="btn btn-info" onclick="showForm(4)">Cancel</button>
     </div>
 </form>
 

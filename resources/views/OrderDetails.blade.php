@@ -3,6 +3,21 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 			<div class="card-header">
 				<h4>Order Details</h4>
 				<div class="card-header-action">
@@ -19,6 +34,7 @@
 							<td>From Date</td>
 							<td>To Date</td>
 							<td>Location</td>
+                            <td>Reports(Lab Test)</td>
 							<td>Actions</td>
 						</tr>
 					</thead>

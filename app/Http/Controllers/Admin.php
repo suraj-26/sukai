@@ -11,7 +11,10 @@ class Admin extends Controller
     {
         $patientlist = DB::table('users_master')->where('user_type','=', 2)->get();
         $patient = $patientlist->count();
-        return view('dashboard');
+
+        $serviceslist = DB::table('serveices')->get();
+        $services = $serviceslist->count();
+        return view('dashboard',array('patient'=>$patient,'services'=>$services));
     }
     public function getPatientList()
     {
