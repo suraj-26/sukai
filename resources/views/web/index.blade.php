@@ -105,8 +105,7 @@
     </div>
     <div class="col-md-4 pr-0 col-sm-12 thb300_fpr_laptop">
         <div class="mb-4 mb-lg-3 row thb300" style="margin: auto; width: 100%;">
-            <h4 class="thb_text">FULL BODY CHECK UP ONLY AT</h4>
-            <h1 class="thb_300"><span>THB300</span></h1>
+            <img src="./images/thb-img.PNG" class="w-100 px-0" alt="">
         </div>
         <form method="POST" action="getEnquiry">
             @csrf

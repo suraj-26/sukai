@@ -27,7 +27,12 @@ class Orders extends Controller
                 if ($row->service_type == '1') {
                     $action = '<button class="btn btn-primary" data-id="' . $row->id . '" data-service_id="' . $row->service_id . '" data-type="' . $row->service_type . '" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary" ' . $onclick . '>' . $status . '</button>';
                 }
-                $download = URL::to("uploads/".$row->report);
+                if($row->report !=""){
+                    $download ='<a href="'. URL::to("uploads/".$row->report).'" download><i class="fas fa-download"></i></a>';
+                }else{
+                    $download="";
+                }
+
                 $data .= '<tr>'
                     . '<td>' . $row->order_id . '</td>'
                     . '<td>' . $row->name . '</td>'
@@ -36,7 +41,7 @@ class Orders extends Controller
                     . '<td>' . $row->start_date . '</td>'
                     . '<td>' . $row->end_date . '</td>'
                     . '<td>' . $row->location . '</td>'
-                    . '<td><a href="'.$download.'" download><i class="fas fa-download"></i></a></td>'
+                    . '<td>'.$download.'</td>'
                     . '<td>' . $action . '</td>'
                     . '</tr>';
             }
@@ -104,7 +109,7 @@ class Orders extends Controller
 //
 //        echo 'File Mime Type: '.$file->getMimeType();
 //        echo '<br>';
-        $file->move(base_path('/uploads'), $file->getClientOriginalName());
+        $file->move(base_path('/public/uploads'), $file->getClientOriginalName());
 
         $uploadFile = DB::table('order_details')->where('order_id', $id)->where('service_id', $service_id)->update(['report' => $file->getClientOriginalName()]);
         if ($uploadFile) {
