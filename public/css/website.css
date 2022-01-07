@@ -1,5 +1,6 @@
 *{
     font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
 }
 .form-control:focus {
     color: #495057;

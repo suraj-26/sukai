@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sukaii</title>
-
+        <link rel = "icon" href ="{{ URL::asset('images/sukaii_transparent_logo.png')}}" type = "image/x-icon">
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/website.css') }}">
 
@@ -93,10 +93,10 @@
         <div class="d-md-block d-none float-right row w-100">
             <ul class="d-flex float-right mb-0">
                 <li class="menu_list px-3"><a href="{{ URL::to('/') }}" class="text-dark">HOME</a></li>
-                <li class="menu_list  px-3">SERVICES</li>
+                <li class="menu_list  px-3"><a href="#we_made_it" class="text-dark">SERVICES</a></li>
                 <li class="menu_list px-3">FAQ</li>
                 <li class="menu_list px-3">PARTNERS</li>
-                <li class="menu_list px-3">ABOUT US</li>
+                <li class="menu_list px-3"><a href="#recommeded_to_desktop" class="text-dark">ABOUT US</a></li>
             </ul>
         </div>
         <div class="align-items-center d-flex justify-content-end mobile_menu">

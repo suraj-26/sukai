@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sukaii</title>
+    <link rel = "icon" href ="{{ URL::asset('images/sukaii_transparent_logo.png')}}" type = "image/x-icon">
 </head>
 <style>
     .list {
@@ -181,7 +182,7 @@
 </div>
 <div class="book_3_eassy_step col-sm-12">
     <!-- <img src=" alt=""> -->
-    <h4 class="text-center we_made_it">WE MADE IT SIMPLE</h4>
+    <h4 class="text-center we_made_it" id="we_made_it">WE MADE IT SIMPLE</h4>
     <div class="bg-dark book_now py-2 text-light text-center">
         <h2 class="mb-0"><b style="color: #00b4b8; font-family: 'Rubik', sans-serif;">BOOK NOW</b></h2>
         <p class="mb-0"><b>In Just 3 easy steps</b></p>
@@ -347,7 +348,7 @@
 </div>
 </div>
 <div class="container">
-    <div class="d-md-block d-none recommeded_to_desktop row" style="margin-bottom: 5rem;">
+    <div class="d-md-block d-none recommeded_to_desktop row" id="recommeded_to_desktop" style="margin-bottom: 5rem;">
         <div class="pt-4 pb-3 w-100"><h1 class="mb-4 text-center we_are_commited_to">BENEFITS</h1></div>
         <div class="row ">
             <div class="col-md-4 col-sm-12">
