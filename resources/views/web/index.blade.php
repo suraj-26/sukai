@@ -152,7 +152,7 @@
 
                 <div class="freecall_div border-dark p-2 form-control " style="padding: 10px;">
                     <span><i class="fas fa-user freecall_name_icon"></i></span>
-                    <input type="text" required name="mobile" class="border-0" style="outline: none;padding-left: 20px;padding-left: 15px;"
+                    <input type="text" required name="mobile" class="border-0" style="outline: none;padding-left: 15px;"
                            placeholder="Enter your Mobile No" id="freecall_mobile">
                 </div>
 
@@ -166,15 +166,10 @@
                         <option value="Lab Test" class="form-control">Lab Test</option>
                     </select>
                 </div>
-                <div class="freecall_div border-dark form-control py-0">
+                <div class="freecall_div border-dark form-control py-10">
                     <span><i class="fas fa-heartbeat freecall_name_icon"></i></span>
-                    <select name="location" id="freecall_service" required class="border-0 form-control py-0">
-                        <option disabled class="form-control">select Location</option>
-                        <option value="MUMBAI" class="form-control">MUMBAI</option>
-                        <option value="GUJRAT" class="form-control">GUJRAT</option>
-                        <option value="PUNE" class="form-control">PUNE</option>
-                        <option value="SIKKIM" class="form-control">SIKKIM</option>
-                    </select>
+                    <input type="text" required name="location" class="border-0" style="outline: none;padding-left: 15px;"
+                           placeholder="Enter your Location" id="freecall_location">
                 </div>
                 <div class="border call_btn m-auto px-3 py-2">
                     <button class="btn book_services_btn text-light"><h3 class="mb-0">BOOK NOW</h3></button>
