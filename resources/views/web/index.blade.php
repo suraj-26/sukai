@@ -126,7 +126,7 @@
 </div>
 <div class="container d-md-flex d-sm-block" style="margin-bottom: 7rem;">
     <div class="col-md-4 col-sm-12 text-center">
-        <img src="{{ URL::asset('images/doctors_image-1.PNG')}}" alt="" style="border-radius: 25px; width: 100%;"
+        <img src="{{ URL::asset('images/doctors_image-1.PNG')}}" alt="" style="border-radius: 25px;height: 100%; width: 100%;"
              class="we_are_doctor_image">
     </div>
     <div class="col-md-4 col-sm-12 px-4 we_are_div_laptop">
@@ -246,7 +246,7 @@
     </div>
 </div>
 
-<div class="mb-4 row why_us_desktop px-5" style="background: #efefef; margin-left: 0px; margin-right: 0px;">
+<div class="mb-4 row why_us_desktop px-md-5" style="background: #efefef; margin-left: 0px; margin-right: 0px;">
     <div class="pt-4 pb-3 w-100 col-sm-12"><h1 class="text-center why_us w-100">WHY SUKAII</h1></div>
     <div class="row" style=" margin-left: 0px; margin-right: 0px;">
         <div class="col-md-4">
