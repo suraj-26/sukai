@@ -188,7 +188,7 @@
     <!-- <img src=" alt=""> -->
     <h4 class="text-center we_made_it">WE MADE IT SIMPLE</h4>
     <div class="bg-dark book_now py-2 text-light text-center">
-        <h2 class="mb-0"><b style="color: #00b4b8;">BOOK NOW</b></h2>
+        <h2 class="mb-0"><b style="color: #00b4b8; font-family: 'Rubik', sans-serif;">BOOK NOW</b></h2>
         <p class="mb-0"><b>In Just 3 easy steps</b></p>
     </div>
     <div class="imp_3_way">
@@ -237,7 +237,7 @@
             <div class="text-center lab_img lab_test"><img src="{{ URL::asset('images/lab-test(2).png')}}" alt=""
                                                            class="w-75"></div>
             <div class="" style="width: 100%; margin: auto;">
-                <h2 class="LAB_TEST_AT_HOME_text text-center">COVID TEST</h2>
+                <h2 class="LAB_TEST_AT_HOME_text text-center">LAB TEST</h2>
                 <div class="book_btn text-center">
                     <button id="btn3" type="button" onclick="showForm(3)" class="btn book_services_btn text-light">BOOK</button>
                 </div>
@@ -257,7 +257,7 @@
         <div class="col-md-4">
             <div class="f_s_c text-center pb-4"><img src="{{ URL::asset('images/Free-Sample-Collection.png')}}" class=""
                                                      width="40%" alt="" style="border-radius: 32px;"></div>
-            <div class="f_s_c_heading pb-2">
+            <div class="f_s_c_heading pb-2" style="font-family: 'Rubik', sans-serif">
                 <h3 class="text-center mb-0">
                     <div class="">Sample Collected at Home</div>
                 </h3>
@@ -269,7 +269,7 @@
         <div class="col-md-4 text-center">
             <div class="f_d_c pb-4"><img src="{{ URL::asset('images/Free-Doctor-Consultation.png')}}" class=""
                                          width="40%" alt="" style="border-radius: 32px;"></div>
-            <div class="f_d_c_heading pb-2">
+            <div class="f_d_c_heading pb-2" style="font-family: 'Rubik', sans-serif">
                 <h3 class="text-center mb-0">
                     <div class="">State-of-the-art Diagnostics</div>
                 </h3>
@@ -281,7 +281,7 @@
         <div class="col-md-4 text-center">
             <div class="f_sp_c pb-4"><img src="{{ URL::asset('images/Free-Smart-Reports.png')}}" class="" width="40%"
                                           alt="" style="border-radius: 32px;"></div>
-            <div class="f_sp_c_heading pb-2">
+            <div class="f_sp_c_heading pb-2" style="font-family: 'Rubik', sans-serif">
                 <h3 class="text-center mb-0">
                     <div>Sukaii Report</div>
                 </h3>
@@ -366,7 +366,7 @@
                 <div class="s_a_h" style=" margin-top: 3rem;">
                     <div class="s_a_h_img"><img src="{{ URL::asset('images/ontime_service.PNG')}}" alt=""></div>
                     <h3 style="padding-top: 5rem; font-size: 1.4rem;"> CONVENIENT</h3>
-                    <p class="s_a_h_detail">Book online and schedule the visit</p>
+                    <p class="s_a_h_detail text-center">Book online and schedule the visit</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-12">
@@ -404,8 +404,8 @@
     </div>
 </div>
 </div>
-<div class="row footer" style="background-color: #bdbdbd;  margin-left: 0px; margin-right: 0px;">
-    <div class="col-md-3 pl-md-5">
+<div class="row footer" style="background-color: #7e7e7e;  padding-left: 10%; padding-right: 10%;">
+    <div class="col-md-3 ">
         <h5>ABOUT US</h5>
         <p class="about_us_footer">Sukaii was created with a simple vision, that healthcare should not require a trip to
             the hospital. Through technology and the best patient-centric care, we aim to deliver on this vision.</p>
