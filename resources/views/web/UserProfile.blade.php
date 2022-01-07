@@ -1,4 +1,4 @@
-@include('web.web_header');
+@include('web.web_header')
 <style>
     .user_img img{
         border-radius: 50px;
@@ -31,7 +31,7 @@
     }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid mt-3">
     @if (session('error'))
         <div class="alert alert-danger">
             <i class="fas fa-exclamation-triangle"></i> {{ session('error') }}

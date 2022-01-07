@@ -115,7 +115,7 @@ class Home extends Controller
             'location' => $location
         ]);
         if ($insert_enquiry) {
-            session()->flash('success', 'Enquiry Register for '.$name.'');
+            session()->flash('success', 'Enquiry Registered for '.$name.'');
             return redirect('/');
         } else {
             session()->flash('error', 'Something Went Wrong');

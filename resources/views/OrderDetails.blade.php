@@ -44,7 +44,7 @@
                                         <td>From Date</td>
                                         <td>To Date</td>
                                         <td>Location</td>
-                                        <td>Reports(Lab Test)</td>
+{{--                                        <td>Reports(Lab Test)</td>--}}
                                         <td>Actions</td>
                                     </tr>
                                     </thead>
@@ -65,7 +65,7 @@
                                         <td>From Date</td>
                                         <td>To Date</td>
                                         <td>Location</td>
-                                        <td>Reports(Lab Test)</td>
+{{--                                        <td>Reports(Lab Test)</td>--}}
                                         <td>Actions</td>
                                     </tr>
                                     </thead>
@@ -156,9 +156,11 @@
                 if (response.status === 200) {
                     if (type === 3) {
                         $('#nursing').append(response.data);
+                        $('.reportFile').hide();
                     }
                     if (type === 2) {
                         $('#elderly').append(response.data);
+                        $('.reportFile').hide();
                     }
                     if (type === 1) {
                         $('#lab').append(response.data);
