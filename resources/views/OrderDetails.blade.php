@@ -11,7 +11,7 @@
         <h1 class="ml-3">Order Details</h1>
     </div>
     <div class="row">
-        <div class="col-md-12 p-0">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">

@@ -36,11 +36,17 @@
     #patients_paginate{
         float: right;
     }
+    #patients_length{
+        margin-top: 30px;
+    }
     #nursing_details_filter{
         float: right;
     }
     #nursing_details_paginate{
         float: right;
+    }
+    #nursing_details_length{
+        margin-top: 30px;
     }
     #elder_details_filter{
         float: right;
@@ -48,23 +54,35 @@
     #elder_details_paginate{
         float: right;
     }
+    #elder_details_length{
+        margin-top: 30px;
+    }
     #lab_details_filter{
         float: right;
      }
     #lab_details_paginate{
         float: right;
      }
+    #lab_details_length{
+        margin-top: 30px;
+    }
     #services_filter{
         float: right;
     }
     #services_paginate{
         float: right;
     }
+    #services_length{
+        margin-top: 30px;
+    }
     #enquiry_filter{
         float: right;
     }
     #enquiry_paginate{
         float: right;
+    }
+    #enquiry_length{
+        margin-top: 30px;
     }
     .dropdown-item:hover{
         background-color: #d7dee5;

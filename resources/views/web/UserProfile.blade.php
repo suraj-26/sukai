@@ -17,6 +17,18 @@
     .table{
         font-size: 13px;
     }
+    #orderHistory_wrapper{
+        font-size: 13px;
+    }
+    #orderHistory_filter{
+        float: right;
+    }
+    #orderHistory_paginate{
+        float: right;
+    }
+    #orderHistory_length {
+        margin-top: 30px
+    }
 </style>
 
 <div class="container-fluid">
@@ -81,7 +93,7 @@
                         <h3 class="mb-0" style="font-family:'Rubik', sans-serif !important;">Order Summary</h3>
                     </div>
                     <div class="list-group" id="list-tab" role="tablist">
-                        <table id="orderHistory" class="table  table-hover table-striped">
+                        <table id="orderHistory" class="table table-responsive-sm table-hover table-striped">
                             <thead>
                             <tr>
                                 <th scope="col">Customer Name</th>
@@ -103,3 +115,7 @@
     </div>
 </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('#orderHistory').DataTable();
+    });</script>
