@@ -55,7 +55,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 2.5rem;
     top: 37%;
-    left: 8%;
+    left: 6%;
 }
 .nurses_image span h1{
     font-size: 4rem;
@@ -110,7 +110,7 @@ we_are_doctor_image{
 }
 .freecall_div{
     border: 1.5px solid black;
-    padding: .5rem;
+    padding: .6rem .5rem;
     width: 100% !important;
     margin: auto;
     border-radius: 7px;
@@ -355,7 +355,7 @@ input#freecall_name:focus {
 
 @media only screen and (min-width: 1350px) {
     .nurses_image span h1 {
-        font-size: 5rem !important;
+        font-size: 4.5rem !important;
     }
 }
 @media only screen and (max-width: 1220px) {

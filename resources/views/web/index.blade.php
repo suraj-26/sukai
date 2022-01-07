@@ -144,15 +144,15 @@
         <form method="POST" action="getEnquiry">
             @csrf
             <div class="row">
-                <div class="freecall_div border-dark p-2 form-control ">
+                <div class="freecall_div border-dark form-control ">
                     <span><i class="fas fa-user freecall_name_icon"></i></span>
-                    <input type="text" required name="Name" class="border-0 pl-4" placeholder="Enter Your Name"
+                    <input type="text" required name="Name" class="border-0" placeholder="Enter Your Name"
                            id="freecall_name">
                 </div>
 
                 <div class="freecall_div border-dark p-2 form-control " style="padding: 10px;">
                     <span><i class="fas fa-user freecall_name_icon"></i></span>
-                    <input type="text" required name="mobile" class="border-0 pl-4" style="outline: none;padding-left: 20px;"
+                    <input type="text" required name="mobile" class="border-0" style="outline: none;padding-left: 20px;padding-left: 15px;"
                            placeholder="Enter your Mobile No" id="freecall_mobile">
                 </div>
 
@@ -251,7 +251,7 @@
     </div>
 </div>
 
-<div class="mb-4 row why_us_desktop" style="background: #efefef; margin-left: 0px; margin-right: 0px;">
+<div class="mb-4 row why_us_desktop px-5" style="background: #efefef; margin-left: 0px; margin-right: 0px;">
     <div class="pt-4 pb-3 w-100 col-sm-12"><h1 class="text-center why_us w-100">WHY SUKAII</h1></div>
     <div class="row" style=" margin-left: 0px; margin-right: 0px;">
         <div class="col-md-4">
