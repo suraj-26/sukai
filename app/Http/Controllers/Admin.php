@@ -7,6 +7,11 @@ use  Illuminate\Support\Facades\DB;
 
 class Admin extends Controller
 {
+    public function index()
+    {
+        return view('components/adminPanel');
+    }
+
     public function dashboard()
     {
         $patientlist = DB::table('users_master')->where('user_type','=', 2)->get();

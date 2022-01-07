@@ -1,4 +1,5 @@
-<x-header/>
+{{--<x-header/>--}}
+@include('components.adminPanel')
 <div class="row">
     <div class="col-md-12">
         <div class="card">

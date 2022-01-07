@@ -7,19 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sukaii</title>
 
-        <link rel="stylesheet" href="{{ URL::asset('css/bootstrap/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('css/website.css') }}">
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-                integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
-                integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
               integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
               crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -27,20 +14,17 @@
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/website.css') }}">
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-                crossorigin="anonymous"></script>
-
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     </head>
 </head>
+<style>
+    .footer {
+        position:absolute;
+        bottom:0;
+        width:100%;
+        height:40px;
+        background-color: #bdbdbd;
+    }
+</style>
 <body>
 <div class="align-items-center border-bottom row">
     <div class="col col-md-3 col-sm-6">
@@ -82,26 +66,36 @@
         </div>
         <div class="d-md-block d-none float-right row w-100">
             <ul class="d-flex float-right mb-0">
-                <li class="menu_list px-3"><a href="{{ URL::to('/') }}" class="text-dark">HOME</a></li>
-                <li class="menu_list  px-3">SERVICES</li>
-                <li class="menu_list px-3">FAQ</li>
-                <li class="menu_list px-3">PARTNERS</li>
-                <li class="menu_list px-3">ABOUT US</li>
+                <li class="menu_list px-3" style="padding: 3px"><a href="{{ URL::to('/') }}" class="text-dark">HOME</a></li>
+                <div class="btn-group dropleft">
+                    <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin Panel
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="Dashboard" class="dropdown-item"><i class="fas fa-house-user"></i><span>Dashboard</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="orders_list"><i class="fas fa-file-prescription"></i><span>Order Details</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a href="patient_list" class="dropdown-item"><i class="fas fa-user-injured"></i><span>Patients</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="services"><i class="fas fa-clinic-medical"></i><span>Services</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="enquiry"><i class="fas fa-question-circle"></i><span>Enquiries</span></a>
+                    </div>
+                </div>
+
             </ul>
+
         </div>
         <div class="align-items-center d-flex justify-content-end mobile_menu">
             @if(session()->has('name'))
-                <li class="dropdown list-unstyled d-block d-md-none "><a href="#" data-toggle="dropdown"
-                                        class="nav-link d-flex align-items-baseline p-0 dropdown-toggle text-dark nav-link-lg nav-link-user">
+                <li class="dropdown list-unstyled d-block d-md-none ">
+                    <a href="#" data-toggle="dropdown" class="nav-link d-flex align-items-baseline p-0 dropdown-toggle text-dark nav-link-lg nav-link-user">
                         <div class="d-sm-none d-lg-inline-block"
                              style="font-weight: 600;color: #e9088a"><?=session('name')?></div>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" style="font-size: 12px;">
-                        <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
-                            <i class="fas fa-user"></i> Profile
-                        </a>
-                        <div class="dropdown-divider"></div>
                         <a href="{{URL::to('logout')}}" class="dropdown-item has-icon text-dark">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
@@ -120,28 +114,44 @@
     <div class="tab_mobile_nav  w-50" id="mobile_menu_btn" style="display: none;">
         <ul class="list-unstyled form-control">
             <li class="border-0 form-control"><a href="{{URL::to('/')}}" class="text-dark">HOME</a></li>
-            <li class="border-0 form-control"><a href="#we_made_it" class="text-dark">SERVICES</a></li>
-            <li class="border-0 form-control"><a href="#" class="text-dark">FAQ</a></li>
-            <li class="border-0 form-control"><a href="#" class="text-dark">PARTNERS</a></li>
-            <li class="border-0 form-control"><a href="#recommeded_to_desktop" class="text-dark">ABOUT US</a></li>
         </ul>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal" id="BookNoWErrorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <!-- dialog body -->
-            <div class="modal-body alert-link">
-                <button type="button" id="closeBookModal" class="close" data-dismiss="modal">&times;</button>
-                You Need To <a href="{{URL::to('login')}}" style="text-decoration: none;color: #ea088b">Login</a> First!
-            </div>
-        </div>
-    </div>
-</div>
+
+
 </body>
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+        integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.11.3/af-2.3.7/b-2.1.1/b-colvis-2.1.1/b-html5-2.1.1/b-print-2.1.1/cr-1.5.5/date-1.1.1/fc-4.0.1/fh-3.2.1/kt-2.6.4/r-2.2.9/rg-1.1.4/rr-1.2.8/sc-2.0.5/sb-1.3.0/sp-1.4.0/sl-1.3.4/sr-1.0.1/datatables.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+<script src="{{ URL::asset('js/scripts.js') }}"></script>
+<script src="{{ URL::asset('js/custom.js') }}"></script>
+
+
+
 <script>
     $.ajax({
         url: "https://geolocation-db.com/jsonp",
@@ -150,17 +160,6 @@
         success: function (location) {
             $('#country').html(location.country_name);
         }
-    });
-
-    $('#closeBookModal').click(function () {
-        $('#BookNoWErrorModal').toggle();
-    });
-
-    $("document").ready(function(){
-        setTimeout(function(){
-            $("div.alert").remove();
-        }, 3000 ); // 5 secs
-
     });
 </script>
 <script>
@@ -173,4 +172,13 @@
             toggle_menu_btn.style.display = "none";
         }
     };
+</script>
+
+<script>
+    $("document").ready(function(){
+        setTimeout(function(){
+            $("div.alert").remove();
+        }, 3000 ); // 5 secs
+
+    });
 </script>

@@ -1,5 +1,5 @@
 <div class="container" >
-    <form action="placeOrder" method="post">
+    <form action="placeOrder" id="OrderNow" method="post">
         @csrf
         <input type="hidden" name="type" id="type">
         <div class="row mb-3">
@@ -15,13 +15,7 @@
         <div class="row mb-3">
             <div class="col-md-12">
                 <p class="mb-0"><b>LOCATION</b></p>
-                <select name="location" id="service_location" class="form-control">
-                    <option class="form-control" disabled>Select Location</option>
-                    <option value="MUMBAI" class="form-control">MUMBAI</option>
-                    <option value="GUJRAT" class="form-control">GUJRAT</option>
-                    <option value="PUNE" class="form-control">PUNE</option>
-                    <option value="SIKKIM" class="form-control">SIKKIM</option>
-                </select>
+                <input type="text" name="location" placeholder="Enter Your Location " id="service_location" class="form-control">
             </div>
         </div>
 

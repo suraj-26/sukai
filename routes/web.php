@@ -35,11 +35,13 @@ Route::get('order', [ServiceController::class, 'order']);
 Route::post('placeOrder', [ServiceController::class, 'placeOrder']);
 
 ////Admin Order Details/////
-Route::get('orders_list', [Orders::class, 'getOrderDetails']);
+Route::get('orders_list', [Orders::class, 'getOrders']);
+Route::post('order_details', [Orders::class, 'getOrderDetails']);
 Route::post('updateStatus', [Orders::class, 'updateStatus']);
 Route::post('UploadFile', [Orders::class, 'UploadFile']);
 
 //////Admin////////////////
+Route::get('main', [Admin::class, 'index']);
 Route::get('Dashboard', [Admin::class, 'dashboard']);
 Route::get('patient_list', [Admin::class, 'getPatientList']);
 Route::get('services', [ServiceController::class, 'getServicesList']);

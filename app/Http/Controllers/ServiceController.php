@@ -86,6 +86,7 @@ class ServiceController extends Controller
                     $data = array(
                         'order_id' => $order_master_insert,
                         'service_id' => $row,
+                        'service_type' => 1,
                         'patient_id' => session('id'),
                         'created_by' => 1,
                         'created_on' => Date('Y-m-d H:i:s'),
@@ -94,10 +95,20 @@ class ServiceController extends Controller
                 }
             }
         } else {
+            $service_type = 0;
+            if($type == 1)
+            {
+                $service_type = 2;
+            }
+            if($type == 2)
+            {
+                $service_type = 3;
+            }
             if ($order_master_insert) {
                 $data = array(
                     'order_id' => $order_master_insert,
                     'service_id' => $services,
+                    'service_type' => $service_type,
                     'patient_id' => session('id'),
                     'created_by' => 1,
                     'created_on' => Date('Y-m-d H:i:s'),

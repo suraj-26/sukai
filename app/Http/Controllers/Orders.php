@@ -9,10 +9,16 @@ use Illuminate\Support\Facades\URL;
 
 class Orders extends Controller
 {
-    public function getOrderDetails()
+    public function getOrders()
     {
+        return view('OrderDetails');
+    }
+
+    public function getOrderDetails(Request $req)
+    {
+        $type = $req->input('type');
         $data = "";
-        $order_details = DB::select('SELECT *,(SELECT service_name from serveices where id = od.service_id) as service_name,(SELECT service_type from serveices where id = od.service_id) as service_type, (SELECT name from users_master where id = od.patient_id) as name FROM order_details od INNER JOIN order_master om ON od.order_id=om.id');
+        $order_details = DB::select('SELECT *,(SELECT service_name from serveices where id = od.service_id) as service_name, (SELECT name from users_master where id = od.patient_id) as name FROM order_details od INNER JOIN order_master om ON od.order_id=om.id where service_type =' . $type . ' ');
         if (count($order_details) > 0) {
             foreach ($order_details as $row) {
                 $status = "PENDING";
@@ -24,15 +30,19 @@ class Orders extends Controller
                 $action = '<button  class="btn btn-primary" ' . $onclick . '>' . $status . '</button>';
                 $service_name = "";
                 $service_name = $row->service_name;
-                if ($row->service_type == '1') {
+                if ($type == '1') {
                     $action = '<button class="btn btn-primary" data-id="' . $row->id . '" data-service_id="' . $row->service_id . '" data-type="' . $row->service_type . '" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary" ' . $onclick . '>' . $status . '</button>';
                 }
-                if($row->report !=""){
-                    $download ='<a href="'. URL::to("uploads/".$row->report).'" download><i class="fas fa-download"></i></a>';
-                }else{
-                    $download="";
-                }
 
+                if($row->report != "" && $row->report != null)
+                {
+                    $download = URL::to("uploads/" . $row->report);
+                    $file = '<a href="' . $download . '" download><i class="fas fa-download"></i></a>';
+                }
+                else
+                {
+                    $file = "";
+                }
                 $data .= '<tr>'
                     . '<td>' . $row->order_id . '</td>'
                     . '<td>' . $row->name . '</td>'
@@ -41,12 +51,17 @@ class Orders extends Controller
                     . '<td>' . $row->start_date . '</td>'
                     . '<td>' . $row->end_date . '</td>'
                     . '<td>' . $row->location . '</td>'
-                    . '<td>'.$download.'</td>'
+
+                    . '<td>'.$file.'</td>'
                     . '<td>' . $action . '</td>'
                     . '</tr>';
             }
         }
-        return view('OrderDetails', array('data' => $data));
+        if ($data != null) {
+            return response(['status'=>200,'data' => $data], 200);
+        } else {
+            return response(['status'=>201,'data' => "No Data Found"], 201);
+        }
     }
 
     public function updateStatus(Request $request)
