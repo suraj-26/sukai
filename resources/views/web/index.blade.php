@@ -292,7 +292,7 @@
 <div class="container">
 </div>
 </div>
-<div class="row d-block d-md-none">
+<div class="row d-block d-md-none" id="recommeded_to_mobile">
     <div class="pt-4 pb-3 w-100 col-sm-12"><h1 class="text-center why_us w-100">BENEFITS</h1></div>
     <div class="row">
         <div class="align-items-center col-sm-12 d-flex free_sample_collection_div mb-3">

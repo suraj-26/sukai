@@ -141,7 +141,7 @@
             <li class="border-0 form-control"><a href="#we_made_it" class="text-dark">SERVICES</a></li>
             <li class="border-0 form-control"><a href="#" class="text-dark">FAQ</a></li>
             <li class="border-0 form-control"><a href="#" class="text-dark">PARTNERS</a></li>
-            <li class="border-0 form-control"><a href="#recommeded_to_desktop" class="text-dark">ABOUT US</a></li>
+            <li class="border-0 form-control"><a href="#recommeded_to_mobile" class="text-dark">ABOUT US</a></li>
         </ul>
     </div>
 </div>
