@@ -1,3 +1,6 @@
+*{
+    font-family: 'Lato', sans-serif;
+}
 .form-control:focus {
     color: #495057;
     background-color: #fff;
@@ -13,8 +16,17 @@
 .row{
     margin-left: 0px; margin-right: 0px;
 }
-.logo_mobile{
+
+.login_btn button{
+    padding: .15rem .5rem;
+    color: black;
+    background:#e90c8c;
+    font-weight: 500;
+}
+.logo_mobile {
     width: 50%;
+    position: relative;
+    left: 4%;
 }
 .menu_list{
     font-weight: 500;
@@ -49,9 +61,16 @@
     font-size: 4rem;
     line-height: .8;
 }
+we_are_doctor_image{
+    height: 100%;
+}
+.we_are_for_labtop{
+    font-size: 2.5rem;
+    font-family: 'Rubik', sans-serif;
+}
 .weare_text_details{
     font-family: 'Lato', sans-serif;
-
+    font-size: larger
 }
 .thb_text {
     width: 39%;
@@ -94,7 +113,7 @@
     padding: .5rem;
     width: 100% !important;
     margin: auto;
-    border-radius: 1rem;
+    border-radius: 7px;
     position: relative;
     line-height: 1;
     margin-bottom: 1rem;
@@ -102,10 +121,10 @@
 #freecall_name input[placeholder="NAME"]{
     padding-left: 1.5rem;
 }
-#freecall_name, #freecall_location{
+#freecall_name, #freecall_location, #freecall_service{
     padding-left: 16px;
-font-size: 15px;
-font-weight: 600;
+    font-size: 15px;
+    font-weight: 600;
 }
 #freecall_location select{
 
@@ -130,10 +149,10 @@ font-weight: 600;
 }
 .call_btn{
     cursor: pointer;
-    border-radius: 18px;
     background: #ec098d;
     color: whitesmoke;
     font-family: 'Rubik', sans-serif;
+    border-radius: 12px;
 }
 .book_now {
     min-width: 357px;
@@ -346,6 +365,9 @@ input#freecall_name:focus {
     .book_now{
         left:34%;
     }
+    .we_made_it {
+        left: 40%;
+    }
 }
 @media only screen and (max-width: 1024px){
     .nurses_image span h1 {
@@ -356,6 +378,12 @@ input#freecall_name:focus {
     }
     .book_now{
         left:31%;
+    }
+    .we_made_it {
+        left: 36.5%;
+    }
+    .thb_text {
+        font-size: 17px;
     }
 }
 @media only screen and (max-width: 900px){
@@ -368,10 +396,8 @@ input#freecall_name:focus {
     .book_now{
         left:28%;
     }
-}
-@media only screen and (max-width: 1024px) {
-    .thb_text {
-        font-size: 17px;
+    .we_made_it {
+        left: 34.5%;
     }
 }
 @media only screen and (max-width:768px){
@@ -389,6 +415,9 @@ input#freecall_name:focus {
     .book_now{
         left:21%;
     }
+    .we_made_it {
+        left: 29.5%;
+    }
 }
 @media only screen and (max-width:600px){
     .book_now{
@@ -399,7 +428,16 @@ input#freecall_name:focus {
     .book_now{
         left:13%;
     }
+    .we_made_it {
+        left: 23.5%;
+    }
 }
+
+.we_made_it {
+    left: 17%;
+    top: -22%;
+}
+
 @media only screen and (max-width:500px){
     .book_now{
         left:10%;
@@ -419,6 +457,12 @@ input#freecall_name:focus {
     }
     .t_way{
         padding-left: 0%;
+    }
+    .carousel_1_image h1{
+        font-size: 25px;
+    }
+    .carousel_1_image{
+        font-size: 1rem;
     }
     .book_now {
         width: 90%;

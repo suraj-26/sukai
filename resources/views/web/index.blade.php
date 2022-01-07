@@ -31,6 +31,17 @@
     span.select2.select2-container.select2-container--default {
         width: 100% !important;
     }
+    .carousel_1_image{
+        color: black !important;
+        z-index: 10;
+        position: absolute;
+        top: 36%;
+        left: 4%;
+        font-size: 1rem;
+    }
+    .carousel_1_image h1{
+        font-size: 25px;
+    }
 </style>
 <body>
 @include('web.web_header')
@@ -45,8 +56,6 @@
         <i class="fas fa-clipboard-check"></i> {{ session('success') }}
     </div>
 @endif
-
-
 <div class="header_mobile_carousel d-block d-md-none row mb-4">
     <div class="col-md-12">
         <div id="mobile_carousel" class="carousel slide" data-ride="carousel">
@@ -56,14 +65,39 @@
                 <li data-target="#mobile_carousel" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
+{{--                <div class="carousel-item active">--}}
+{{--                    <img class="d-block w-100" src="{{ URL::asset('images/Healthcare-at-home.jpg')}}" alt="First slide">--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img class="d-block w-100" src="{{ URL::asset('images/Covid-Test.jpg')}}" alt="Second slide">--}}
+{{--                </div>--}}
+{{--                <div class="carousel-item">--}}
+{{--                    <img class="d-block w-100" src="{{ URL::asset('images/lab-test-at-home.jpg')}}" alt="Third slide">--}}
+{{--                </div>--}}
+
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ URL::asset('images/Healthcare-at-home.jpg')}}" alt="First slide">
+                    <img class="d-block w-100" src="{{ URL::asset('images/Healthcare-at-home.jpg')}}"  alt="First slide">
+                    <div class=" px-0">
+                        <h3 class="carousel_1_image mb-0 position-absolute"><span>Get
+                                    <h1 class="mb-0" style="color: #ec098d !important;">trained nurse</h1>
+                                </span>care at Home</h3>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ URL::asset('images/Covid-Test.jpg')}}" alt="Second slide">
+                    <img class="d-block w-100" src="{{ URL::asset('images/Covid-Test.jpg')}}"  alt="Second slide">
+                    <div class=" px-0">
+                        <h3 class="carousel_1_image mb-0 position-absolute"><span>Get
+                                    <h1 class="mb-0" style="color: #ec098d !important;"> COVID Checkup</h1>
+                                </span>at Home</h3>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="{{ URL::asset('images/lab-test-at-home.jpg')}}" alt="Third slide">
+                    <div class=" px-0">
+                        <h3 class="carousel_1_image mb-0 position-absolute"><span>
+                                    <h1 class="mb-0" style="color: #ec098d !important;">Lab Test</h1>
+                                </span>at Home</h3>
+                    </div>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#mobile_carousel" role="button" data-slide="prev">
@@ -100,7 +134,7 @@
         <p class="text-justify weare_text_details text-dark">Basic healthcare should not require a trip to the hospital.
             Get services like blood draws and diagnostics, nursing care, and Covid tests through our trained nurses at
             the comfort of your home.</p>
-        <p class="text-justify text-dark">Our proprietary Sukaii Report also makes your health check results easy to
+        <p class="text-justify weare_text_details text-dark">Our proprietary Sukaii Report also makes your health check results easy to
             read and understand. <b>Read more...</b></p>
     </div>
     <div class="col-md-4 pr-0 col-sm-12 thb300_fpr_laptop">
@@ -117,9 +151,9 @@
                            id="freecall_name">
                 </div>
 
-                <div class="freecall_div border-dark p-2 form-control ">
+                <div class="freecall_div border-dark p-2 form-control " style="padding: 10px;">
                     <span><i class="fas fa-user freecall_name_icon"></i></span>
-                    <input type="text" required name="mobile" class="border-0 pl-4" style="outline: none"
+                    <input type="text" required name="mobile" class="border-0 pl-4" style="outline: none;padding-left: 20px;"
                            placeholder="Enter your Mobile No" id="freecall_mobile">
                 </div>
 
@@ -337,7 +371,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-12">
-                <div class="s_a_h" style=" margin-top: 3rem;">
+                <div class="s_a_h" style=" margin-top: 3rem;margin-bottom: 10px;">
                     <div class="s_a_h_img"><img src="{{ URL::asset('images/patient_center.PNG')}}" alt=""></div>
                     <h3 style="padding-top: 5rem; font-size: 1.4rem;">PATIENT FIRST</h3>
                     <p class="s_a_h_detail">We put you first and believe you should have fast and easy access to your
@@ -473,6 +507,9 @@
 
 
     function showForm(type) {
+        let name  = '{{session('name')}}';
+        $('#OrderNow').trigger('reset');
+        $('#patient_name').val(name);
         @if(session()->has('id'))
         if (type === 1) {
             $('#btn1').hide();

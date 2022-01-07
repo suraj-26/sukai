@@ -1,4 +1,5 @@
-<x-header/>
+{{--<x-header/>--}}
+@include('components.adminPanel')
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
@@ -6,7 +7,7 @@
 				<h4>Services List</h4>
 				<div class="card-header-action">
 					<!--  <a href="#" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a> -->
-				</div> 	
+				</div>
 			</div>
 
 			<div class="card-body">

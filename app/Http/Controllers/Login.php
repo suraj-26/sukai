@@ -31,7 +31,7 @@ class Login extends Controller
                 session()->flash('error', 'Login Fail, please check your password');
                 return redirect('login');
             }
-            session(['id' => $data->id, 'name' => $data->name]);
+            session(['id' => $data->id, 'name' => $data->name,'user_type'=>$data->user_type]);
             session()->regenerate();
             if ($data->user_type == 1) {
                 return redirect('/Dashboard');

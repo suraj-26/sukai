@@ -13,6 +13,9 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <style>
+        *{
+            font-family: 'Lato', sans-serif;
+        }
         .full_container {
             background-image: url('images/login_image_2.jpg');
             width: 100%;
@@ -73,7 +76,7 @@
 <div class="container-fluid full_container">
     <form action="goLogin" method="POST">
         @csrf
-        <div class="login_form ">
+        <div class="login_form " >
             @if (session('error'))
                 <div class="alert alert-danger">
                    <i class="fas fa-exclamation-triangle"></i> {{ session('error') }}
@@ -83,7 +86,7 @@
             <div class="logo text-center mb-1">
                 <img src="{{URL::asset('images/sukaii_logo.PNG')}}" alt="" width="22%" class="">
             </div>
-            <h4 class="text-center mb-2">LOGIN</h4>
+            <h4 class="text-center mb-2"  style="font-family: 'Rubik', sans-serif !important; font-weight: 600;">LOGIN</h4>
             <div class="username">
                 <label for="" class="username_lable mb-1"><h6 class="mb-1 pl-1">Email</h6></label>
                 <input type="email" name="email" required class="user_name form-control mb-2">
