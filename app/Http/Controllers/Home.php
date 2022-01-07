@@ -37,13 +37,17 @@ class Home extends Controller
                     $status = "COMPLETED";
                     $color = "badge-success";
                 }
-                $download = URL::to("uploads/".$row->report);
+                if($row->report !=""){
+                    $download ='<a href="'. URL::to("uploads/".$row->report).'" download><i class="fas fa-download"></i></a>';
+                }else{
+                    $download="";
+                }
                 $data .= '<tr>'
                     . '<td>' . $row->patient_name . '</td>'
                     . '<td>' . $row->service_name . '</td>'
                     . '<td>' . $date . '</td>'
                     . '<td>' . $row->location . '</td>'
-                    . '<td><a href="'.$download.'" download><i class="fas fa-download"></i></a></td>'
+                    . '<td>'.$download.'</td>'
                     . '<td><div class="badge ' . $color . '">' . $status . '</div></td>'
                     . '</tr>';
             }

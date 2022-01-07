@@ -155,7 +155,7 @@ we_are_doctor_image{
     border-radius: 12px;
 }
 .book_now {
-    min-width: 357px;
+    min-width: 335px;
     max-width: 405px;
     width: 32%;
     margin: auto;
@@ -164,7 +164,7 @@ we_are_doctor_image{
     position: absolute;
     font-family: 'Rubik', sans-serif;
     top: -10%;
-    left: 38%;
+    left: 39%;
 }
 
 .we_made_it {
@@ -456,7 +456,7 @@ input#freecall_name:focus {
         right: 1% !important;
     }
     .t_way{
-        padding-left: 0%;
+        padding-left: 0%!important;
     }
     .carousel_1_image h1{
         font-size: 25px;

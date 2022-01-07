@@ -33,6 +33,7 @@ class Orders extends Controller
                 if ($type == '1') {
                     $action = '<button class="btn btn-sm btn-primary" data-id="' . $row->id . '" data-service_id="' . $row->service_id . '" data-type="' . $row->service_type . '" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary btn-sm m-1" ' . $onclick . '>' . $status . '</button>';
                 }
+
                 if($row->report != "" && $row->report != null)
                 {
                     $download = URL::to("uploads/" . $row->report);
@@ -50,6 +51,7 @@ class Orders extends Controller
                     . '<td>' . $row->start_date . '</td>'
                     . '<td>' . $row->end_date . '</td>'
                     . '<td>' . $row->location . '</td>'
+
                     . '<td>'.$file.'</td>'
                     . '<td>' . $action . '</td>'
                     . '</tr>';
@@ -107,7 +109,6 @@ class Orders extends Controller
         $service_id = $request->input('service_id');
         $type = $request->input('type');
         $file = $request->file('report');
-
 
 //        echo 'File Name: '.$file->getClientOriginalName();
 //        echo '<br>';
