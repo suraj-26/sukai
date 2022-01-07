@@ -83,8 +83,8 @@
                                         <td>Patient Name</td>
                                         <td>Customer Name</td>
                                         <td>Service Name</td>
-                                        <td>From Date</td>
-                                        <td>To Date</td>
+                                        <td>Date</td>
+{{--                                        <td>To Date</td>--}}
                                         <td>Location</td>
                                         <td>Reports(Lab Test)</td>
                                         <td>Actions</td>
@@ -164,6 +164,7 @@
                     }
                     if (type === 1) {
                         $('#lab').append(response.data);
+                        $('.end_Date').hide();
                     }
                 } else {
 

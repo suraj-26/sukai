@@ -48,7 +48,7 @@ class Orders extends Controller
                     . '<td>' . $row->patient_name . '</td>'
                     . '<td>' . $service_name . '</td>'
                     . '<td>' . $row->start_date . '</td>'
-                    . '<td>' . $row->end_date . '</td>'
+                    . '<td class="end_Date">' . $row->end_date . '</td>'
                     . '<td>' . $row->location . '</td>'
                     . '<td class="reportFile">'.$file.'</td>'
                     . '<td>' . $action . '</td>'
