@@ -124,7 +124,7 @@ class Orders extends Controller
 //
 //        echo 'File Mime Type: '.$file->getMimeType();
 //        echo '<br>';
-        $file->move(base_path('/public/uploads'), $file->getClientOriginalName());
+        $file->move(base_path('public/uploads'), $file->getClientOriginalName());
 
         $uploadFile = DB::table('order_details')->where('order_id', $id)->where('service_id', $service_id)->update(['report' => $file->getClientOriginalName()]);
         if ($uploadFile) {
