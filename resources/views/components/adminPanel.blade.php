@@ -164,8 +164,16 @@
                         <div class="d-sm-none d-lg-inline-block"
                              style="font-weight: 600;color: #e9088a"><?=session('name')?></div>
                     </a>
-
                     <div class="dropdown-menu dropdown-menu-right" style="font-size: 12px;">
+                        @if(session('user_type')== 1)
+                            <a href="{{URL::to('Dashboard')}}" class="dropdown-item has-icon text-dark">
+                                <i class="fas fa-user"></i> Dashboard
+                            </a>
+                        @else
+                            <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
+                                <i class="fas fa-user"></i> Profile
+                            </a>
+                        @endif
                         <a href="{{URL::to('logout')}}" class="dropdown-item has-icon text-dark">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
@@ -183,7 +191,7 @@
     </div>
     <div class="tab_mobile_nav  w-50" id="mobile_menu_btn" style="display: none;">
         <ul class="list-unstyled form-control">
-            <li class="border-0 form-control"><a href="{{URL::to('/')}}" class="text-dark">HOME</a></li>
+            <li class="border-0"><a href="{{URL::to('/')}}" class="text-dark">HOME</a></li>
         </ul>
     </div>
 </div>
