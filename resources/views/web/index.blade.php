@@ -400,6 +400,7 @@
     </div>
 </div>
 </div>
+{{--<div class="top"><a href="#Header"><span><i class="fas fa-arrow-up"></i></span></a></div>--}}
 <div class="row footer" style="background-color: #7e7e7e;  padding-left: 10%; padding-right: 10%;">
     <div class="col-md-3 ">
         <h5>ABOUT US</h5>
