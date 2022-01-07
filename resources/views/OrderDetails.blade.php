@@ -1,103 +1,108 @@
 @include('components.adminPanel')
 {{--<x-header/>--}}
 <style>
-    table{
-        width: 100%!important;
+    .nav-tabs .nav-link.active {
+        color: #ec098d!important;
     }
 </style>
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h4>Order Details</h4>
-            </div>
-            <div class="card-body">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active show" id="home-tab" data-toggle="tab" href="#home" onclick="showData(3)" role="tab" aria-controls="home"
-                           aria-selected="false">Nursing Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" onclick="showData(2)" role="tab"
-                           aria-controls="profile" aria-selected="false">Elderly Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" onclick="showData(1)" role="tab"
-                           aria-controls="contact" aria-selected="true">Lab Tests</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane active fade show" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="card-body">
-                            <table id="nursing_details" class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <td>Order Id</td>
-                                    <td>Patient Name</td>
-                                    <td>Customer Name</td>
-                                    <td>Service Name</td>
-                                    <td>From Date</td>
-                                    <td>To Date</td>
-                                    <td>Location</td>
-                                    <td>Reports(Lab Test)</td>
-                                    <td>Actions</td>
-                                </tr>
-                                </thead>
-                                <tbody id="nursing">
-                                </tbody>
-                            </table>
+<div class="section">
+    <div class="section-header">
+        <h1 class="ml-3">Order Details</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active show" id="home-tab" data-toggle="tab" href="#home"
+                               onclick="showData(3)" role="tab" aria-controls="home"
+                               aria-selected="false">Nursing Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" onclick="showData(2)"
+                               role="tab"
+                               aria-controls="profile" aria-selected="false">Elderly Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" onclick="showData(1)"
+                               role="tab"
+                               aria-controls="contact" aria-selected="true">Lab Tests</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane active fade show" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="card-body">
+                                <table id="nursing_details" class="table table-responsive-sm table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <td>Order Id</td>
+                                        <td>Patient Name</td>
+                                        <td>Customer Name</td>
+                                        <td>Service Name</td>
+                                        <td>From Date</td>
+                                        <td>To Date</td>
+                                        <td>Location</td>
+                                        <td>Reports(Lab Test)</td>
+                                        <td>Actions</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="nursing">
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="card-body">
-                            <table id="elder_details" class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <td>Order Id</td>
-                                    <td>Patient Name</td>
-                                    <td>Customer Name</td>
-                                    <td>Service Name</td>
-                                    <td>From Date</td>
-                                    <td>To Date</td>
-                                    <td>Location</td>
-                                    <td>Reports(Lab Test)</td>
-                                    <td>Actions</td>
-                                </tr>
-                                </thead>
-                                <tbody id="elderly">
-                                </tbody>
-                            </table>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="card-body">
+                                <table id="elder_details" class="table table-responsive-sm table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <td>Order Id</td>
+                                        <td>Patient Name</td>
+                                        <td>Customer Name</td>
+                                        <td>Service Name</td>
+                                        <td>From Date</td>
+                                        <td>To Date</td>
+                                        <td>Location</td>
+                                        <td>Reports(Lab Test)</td>
+                                        <td>Actions</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="elderly">
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <div class="card-body">
-                            <table id="lab_details" class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <td>Order Id</td>
-                                    <td>Patient Name</td>
-                                    <td>Customer Name</td>
-                                    <td>Service Name</td>
-                                    <td>From Date</td>
-                                    <td>To Date</td>
-                                    <td>Location</td>
-                                    <td>Reports(Lab Test)</td>
-                                    <td>Actions</td>
-                                </tr>
-                                </thead>
-                                <tbody id="lab">
-                                </tbody>
-                            </table>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="card-body">
+                                <table id="lab_details" class="table table-responsive-sm table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <td>Order Id</td>
+                                        <td>Patient Name</td>
+                                        <td>Customer Name</td>
+                                        <td>Service Name</td>
+                                        <td>From Date</td>
+                                        <td>To Date</td>
+                                        <td>Location</td>
+                                        <td>Reports(Lab Test)</td>
+                                        <td>Actions</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="lab">
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </div>
-</div>
+</section>
 
 
 <!-- Modal -->
@@ -143,25 +148,22 @@
         $.ajax({
             url: 'order_details',
             type: 'post',
-            data: {_token: CSRF_TOKEN,type: type},
+            data: {_token: CSRF_TOKEN, type: type},
             success: function (response) {
                 $('#nursing').html('');
                 $('#elderly').html('');
                 $('#lab').html('');
                 if (response.status === 200) {
-                    if(type === 3)
-                    {
+                    if (type === 3) {
                         $('#nursing').append(response.data);
                     }
-                    if(type === 2)
-                    {
+                    if (type === 2) {
                         $('#elderly').append(response.data);
                     }
-                    if(type === 1)
-                    {
+                    if (type === 1) {
                         $('#lab').append(response.data);
                     }
-                }else {
+                } else {
 
                 }
             }

@@ -39,6 +39,10 @@
 
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <script type="text/javascript"
+                src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.11.3/af-2.3.7/b-2.1.1/b-colvis-2.1.1/b-html5-2.1.1/b-print-2.1.1/cr-1.5.5/date-1.1.1/fc-4.0.1/fh-3.2.1/kt-2.6.4/r-2.2.9/rg-1.1.4/rr-1.2.8/sc-2.0.5/sb-1.3.0/sp-1.4.0/sl-1.3.4/sr-1.0.1/datatables.min.js"></script>
+
     </head>
 </head>
 <body>
@@ -59,9 +63,15 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" style="font-size: 12px;">
-                            <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
-                                <i class="fas fa-user"></i> Profile
-                            </a>
+                            @if(session('user_type')== 1)
+                                <a href="{{URL::to('Dashboard')}}" class="dropdown-item has-icon text-dark">
+                                    <i class="fas fa-user"></i> Dashboard
+                                </a>
+                            @else
+                                <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
+                                    <i class="fas fa-user"></i> Profile
+                                </a>
+                            @endif
                             <div class="dropdown-divider"></div>
                             <a href="{{URL::to('logout')}}" class="dropdown-item has-icon text-dark">
                                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -92,15 +102,22 @@
         <div class="align-items-center d-flex justify-content-end mobile_menu">
             @if(session()->has('name'))
                 <li class="dropdown list-unstyled d-block d-md-none "><a href="#" data-toggle="dropdown"
-                                        class="nav-link d-flex align-items-baseline p-0 dropdown-toggle text-dark nav-link-lg nav-link-user">
+                                                                         class="nav-link d-flex align-items-baseline p-0 dropdown-toggle text-dark nav-link-lg nav-link-user">
                         <div class="d-sm-none d-lg-inline-block"
                              style="font-weight: 600;color: #e9088a"><?=session('name')?></div>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" style="font-size: 12px;">
-                        <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
-                            <i class="fas fa-user"></i> Profile
+                        @if(session('user_type')== 1)
+                        <a href="{{URL::to('Dashboard')}}" class="dropdown-item has-icon text-dark">
+                            <i class="fas fa-user"></i> Dashboard
                         </a>
+                        @else
+                            <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
+                                <i class="fas fa-user"></i> Profile
+                            </a>
+                        @endif
+
                         <div class="dropdown-divider"></div>
                         <a href="{{URL::to('logout')}}" class="dropdown-item has-icon text-dark">
                             <i class="fas fa-sign-out-alt"></i> Logout
@@ -108,10 +125,11 @@
                     </div>
                 </li>
             @else
-                <div class="login_btn"><a href="{{URL::to('login')}}" class="btn btn-info d-block btn-sm d-md-none" style="color: white">Login</a></div>
+                <div class="login_btn"><a href="{{URL::to('login')}}" class="btn btn-info d-block btn-sm d-md-none"
+                                          style="color: white">Login</a></div>
             @endif
 
-            <ul class="d-block d-md-none m-0" onclick="open_menu()"  style="padding: 1rem;">
+            <ul class="d-block d-md-none m-0" onclick="open_menu()" style="padding: 1rem;">
                 <li class="tab_icon_menu_list list-unstyled" style="font-size: 20px;"><span><i class="fas fa-bars "></i></span>
                 </li>
             </ul>
@@ -156,10 +174,10 @@
         $('#BookNoWErrorModal').toggle();
     });
 
-    $("document").ready(function(){
-        setTimeout(function(){
+    $("document").ready(function () {
+        setTimeout(function () {
             $("div.alert").remove();
-        }, 3000 ); // 5 secs
+        }, 3000); // 5 secs
 
     });
 </script>

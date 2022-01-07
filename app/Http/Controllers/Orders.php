@@ -27,11 +27,11 @@ class Orders extends Controller
                     $status = "COMPLETED";
                     $onclick = "disabled";
                 }
-                $action = '<button  class="btn btn-primary" ' . $onclick . '>' . $status . '</button>';
+                $action = '<button  class="btn btn-sm btn-primary" ' . $onclick . '>' . $status . '</button>';
                 $service_name = "";
                 $service_name = $row->service_name;
                 if ($type == '1') {
-                    $action = '<button class="btn btn-primary" data-id="' . $row->id . '" data-service_id="' . $row->service_id . '" data-type="' . $row->service_type . '" data-backdrop="false" data-toggle="modal" data-target="#fileUpload">Upload Report</button> <button  class="btn btn-primary" ' . $onclick . '>' . $status . '</button>';
+                    $action = '<button class="btn btn-sm btn-primary" data-id="' . $row->id . '" data-service_id="' . $row->service_id . '" data-type="' . $row->service_type . '" data-backdrop="false" data-toggle="modal" data-target="#fileUpload"><i class="fas fa-cloud-upload-alt"></i></button> <button  class="btn btn-primary btn-sm m-1" ' . $onclick . '>' . $status . '</button>';
                 }
 
                 if($row->report != "" && $row->report != null)

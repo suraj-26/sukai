@@ -14,9 +14,15 @@
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/website.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/components.css') }}">
     </head>
 </head>
 <style>
+    table{
+        width: 100%!important;
+        font-size: 13px;
+    }
     .footer {
         position:absolute;
         bottom:0;
@@ -24,9 +30,66 @@
         height:40px;
         background-color: #bdbdbd;
     }
+    #patients_filter{
+        float: right;
+    }
+    #patients_paginate{
+        float: right;
+    }
+    #patients_length{
+        margin-top: 30px;
+    }
+    #nursing_details_filter{
+        float: right;
+    }
+    #nursing_details_paginate{
+        float: right;
+    }
+    #nursing_details_length{
+        margin-top: 30px;
+    }
+    #elder_details_filter{
+        float: right;
+    }
+    #elder_details_paginate{
+        float: right;
+    }
+    #elder_details_length{
+        margin-top: 30px;
+    }
+    #lab_details_filter{
+        float: right;
+     }
+    #lab_details_paginate{
+        float: right;
+     }
+    #lab_details_length{
+        margin-top: 30px;
+    }
+    #services_filter{
+        float: right;
+    }
+    #services_paginate{
+        float: right;
+    }
+    #services_length{
+        margin-top: 30px;
+    }
+    #enquiry_filter{
+        float: right;
+    }
+    #enquiry_paginate{
+        float: right;
+    }
+    #enquiry_length{
+        margin-top: 30px;
+    }
+    .dropdown-item:hover{
+        background-color: #d7dee5;
+    }
 </style>
 <body>
-<div class="align-items-center border-bottom row">
+<div class="align-items-center mb-4 row">
     <div class="col col-md-3 col-sm-6">
         <img src="{{ URL::asset('images/sukaii_transparent_logo.png')}}" alt="Sukaii" class="p-2 logo_mobile">
     </div>
@@ -43,9 +106,15 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" style="font-size: 12px;">
-                            <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
-                                <i class="fas fa-user"></i> Profile
+                            @if(session('user_type')== 1)
+                            <a href="{{URL::to('Dashboard')}}" class="dropdown-item has-icon text-dark">
+                                <i class="fas fa-user"></i> Dashboard
                             </a>
+                            @else
+                                <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
+                                    <i class="fas fa-user"></i> Profile
+                                </a>
+                            @endif
                             <div class="dropdown-divider"></div>
                             <a href="{{URL::to('logout')}}" class="dropdown-item has-icon text-dark">
                                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -72,15 +141,15 @@
                         Admin Panel
                     </button>
                     <div class="dropdown-menu">
-                        <a href="Dashboard" class="dropdown-item"><i class="fas fa-house-user"></i><span>Dashboard</span></a>
+                        <a href="Dashboard" class="dropdown-item"><i class="fas fa-house-user"></i><span> Dashboard</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="orders_list"><i class="fas fa-file-prescription"></i><span>Order Details</span></a>
+                        <a class="dropdown-item" href="orders_list"><i class="fas fa-file-prescription"></i><span> Order Details</span></a>
                         <div class="dropdown-divider"></div>
-                        <a href="patient_list" class="dropdown-item"><i class="fas fa-user-injured"></i><span>Patients</span></a>
+                        <a href="patient_list" class="dropdown-item"><i class="fas fa-user-injured"></i><span> Patients</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="services"><i class="fas fa-clinic-medical"></i><span>Services</span></a>
+                        <a class="dropdown-item" href="services"><i class="fas fa-clinic-medical"></i><span> Services</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="enquiry"><i class="fas fa-question-circle"></i><span>Enquiries</span></a>
+                        <a class="dropdown-item" href="enquiry"><i class="fas fa-question-circle"></i><span> Enquiries</span></a>
                     </div>
                 </div>
 
