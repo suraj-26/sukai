@@ -59,9 +59,15 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" style="font-size: 12px;">
-                            <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
-                                <i class="fas fa-user"></i> Profile
-                            </a>
+                            @if(session('user_type')== 1)
+                                <a href="{{URL::to('Dashboard')}}" class="dropdown-item has-icon text-dark">
+                                    <i class="fas fa-user"></i> Dashboard
+                                </a>
+                            @else
+                                <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
+                                    <i class="fas fa-user"></i> Profile
+                                </a>
+                            @endif
                             <div class="dropdown-divider"></div>
                             <a href="{{URL::to('logout')}}" class="dropdown-item has-icon text-dark">
                                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -92,15 +98,22 @@
         <div class="align-items-center d-flex justify-content-end mobile_menu">
             @if(session()->has('name'))
                 <li class="dropdown list-unstyled d-block d-md-none "><a href="#" data-toggle="dropdown"
-                                        class="nav-link d-flex align-items-baseline p-0 dropdown-toggle text-dark nav-link-lg nav-link-user">
+                                                                         class="nav-link d-flex align-items-baseline p-0 dropdown-toggle text-dark nav-link-lg nav-link-user">
                         <div class="d-sm-none d-lg-inline-block"
                              style="font-weight: 600;color: #e9088a"><?=session('name')?></div>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" style="font-size: 12px;">
-                        <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
-                            <i class="fas fa-user"></i> Profile
+                        @if(session('user_type')== 1)
+                        <a href="{{URL::to('Dashboard')}}" class="dropdown-item has-icon text-dark">
+                            <i class="fas fa-user"></i> Dashboard
                         </a>
+                        @else
+                            <a href="{{URL::to('User_Profile')}}" class="dropdown-item has-icon text-dark">
+                                <i class="fas fa-user"></i> Profile
+                            </a>
+                        @endif
+
                         <div class="dropdown-divider"></div>
                         <a href="{{URL::to('logout')}}" class="dropdown-item has-icon text-dark">
                             <i class="fas fa-sign-out-alt"></i> Logout
@@ -108,10 +121,11 @@
                     </div>
                 </li>
             @else
-                <div class="login_btn"><a href="{{URL::to('login')}}" class="btn btn-info d-block btn-sm d-md-none" style="color: white">Login</a></div>
+                <div class="login_btn"><a href="{{URL::to('login')}}" class="btn btn-info d-block btn-sm d-md-none"
+                                          style="color: white">Login</a></div>
             @endif
 
-            <ul class="d-block d-md-none m-0" onclick="open_menu()"  style="padding: 1rem;">
+            <ul class="d-block d-md-none m-0" onclick="open_menu()" style="padding: 1rem;">
                 <li class="tab_icon_menu_list list-unstyled" style="font-size: 20px;"><span><i class="fas fa-bars "></i></span>
                 </li>
             </ul>
@@ -156,10 +170,10 @@
         $('#BookNoWErrorModal').toggle();
     });
 
-    $("document").ready(function(){
-        setTimeout(function(){
+    $("document").ready(function () {
+        setTimeout(function () {
             $("div.alert").remove();
-        }, 3000 ); // 5 secs
+        }, 3000); // 5 secs
 
     });
 </script>

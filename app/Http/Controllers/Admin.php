@@ -7,10 +7,6 @@ use  Illuminate\Support\Facades\DB;
 
 class Admin extends Controller
 {
-    public function index()
-    {
-        return view('components/adminPanel');
-    }
 
     public function dashboard()
     {
@@ -19,7 +15,19 @@ class Admin extends Controller
 
         $serviceslist = DB::table('serveices')->get();
         $services = $serviceslist->count();
-        return view('dashboard',array('patient'=>$patient,'services'=>$services));
+
+        $nursing = DB::table('order_details')->where(array('service_type'=>3))->get();
+        $nurse = $nursing->count();
+
+        $elderly = DB::table('order_details')->where(array('service_type'=>2))->get();
+        $elder = $elderly->count();
+
+        $labTest = DB::table('order_details')->where(array('service_type'=>1))->get();
+        $lab = $labTest->count();
+
+        $enquiry = DB::table('user_enquiry')->get();
+        $enquiryCnt = $enquiry->count();
+        return view('dashboard',array('patient'=>$patient,'services'=>$services,'nursing'=>$nurse,'elder'=>$elder,'lab'=>$lab,'enquiry'=>$enquiryCnt));
     }
     public function getPatientList()
     {
