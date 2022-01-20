@@ -127,23 +127,23 @@ class Home extends Controller
             'location' => $location
         ]);
         if ($insert_enquiry) {
-           
+
             $this->sendEmail($email,$name);
-            // $sms = $this->sendSMS($mobile, array('name' => $name, 'otp' => $patient_id, 'time' => date('H:i:s'),'center'=>'vashi','room'=>'1','bed'=>'1','company'=>'gbtech'), '1107164205399035078',3);
-            
-            // if($sms){
-            //     session()->flash('success', 'Enquiry Registered for '.$name.'');
+             $sms = $this->sendSMS($mobile, array('name' => $name, 'otp' => $patient_id, 'time' => date('H:i:s'),'center'=>'vashi','room'=>'1','bed'=>'1','company'=>'gbtech'), '1107164205399035078',3);
+
+             if($sms){
+                 session()->flash('success', 'Enquiry Registered for '.$name.'');
                 return redirect('/');
-            // }else{
-            //     return view('enquiry_form');
-            // }
+             }else{
+                 return view('enquiry_form');
+             }
         } else {
             session()->flash('error', 'Something Went Wrong');
             return redirect('/');
         }
     }
 
-    
+
 
     public function sendSMS($number,$templateData,$template,$templateID=1){
         $username="bharatmishra1";
@@ -180,7 +180,7 @@ class Home extends Controller
         return $response->getBody();
 
     }
-    
+
     public function sendEmail($to,$name){
         $details = [
             'title'=> 'Mail from Sukai',
