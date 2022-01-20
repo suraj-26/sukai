@@ -196,6 +196,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
     @include('web.web_footer')
 </body>
 <!-- <script src="./javascript/javascript.js"></script> -->

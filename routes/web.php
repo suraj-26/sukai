@@ -72,4 +72,6 @@ Route::view('services','basic_services');
 Route::view('select_nurse_form','select_nurse_form');
 Route::view('payment_gateway','payment_gateway');
 Route::view('invoice','invoice');
+Route::view('select_basic_services','select_basic_services');
+
 
