@@ -127,7 +127,7 @@
 </div>
 <div class="container d-md-flex d-sm-block" style="margin-bottom: 7rem;">
     <div class="col-md-4 col-sm-12 text-center">
-        <img src="{{ URL::asset('images/doctors_image-1.PNG')}}" alt="" style="border-radius: 25px;height: 100%; width: 100%;"
+        <img src="{{ URL::asset('images/doctors_image-1.PNG')}}" alt="" style="border-radius: 25px;height: 80%; width: 100%;"
              class="we_are_doctor_image">
     </div>
     <div class="col-md-4 col-sm-12 px-4 we_are_div_laptop">
@@ -139,7 +139,7 @@
             read and understand. <b>Read more...</b></p>
     </div>
     <div class="col-md-4 pr-0 col-sm-12 thb300_fpr_laptop">
-        <div class="mb-4 mb-lg-3 row thb300" style="margin: auto; width: 100%;">
+        <div class="mb-4 mb-lg-1 row thb300" style="margin: auto; width: 100%;">
             <img src="./images/thb-img.PNG" class="w-100 px-0" alt="">
         </div>
         <form method="POST" action="getEnquiry">
@@ -151,7 +151,7 @@
                            id="freecall_name">
                 </div>
 
-                <div class="freecall_div border-dark p-2 form-control " style="padding: 10px;">
+                <div class="freecall_div border-dark form-control " style="padding: 10px;">
                     <span><i class="fas fa-user freecall_name_icon"></i></span>
                     <input type="text" required name="mobile" class="border-0" style="outline: none;padding-left: 15px;"
                            placeholder="Enter your Mobile No" id="freecall_mobile">
@@ -177,7 +177,7 @@
                     <input type="text" required name="location" class="border-0" style="outline: none;padding-left: 15px;"
                            placeholder="Enter your Location" id="freecall_location">
                 </div>
-                <div class="border call_btn m-auto px-3 py-2">
+                <div class="border call_btn m-auto">
                     <button class="btn book_services_btn text-light"><h3 class="mb-0">BOOK NOW</h3></button>
                 </div>
             </div>

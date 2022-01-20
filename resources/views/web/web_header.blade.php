@@ -49,7 +49,7 @@
 <body>
 <div class="align-items-center border-bottom row">
     <div class="col col-md-3 col-sm-6">
-        <img src="{{ URL::asset('images/sukaii_transparent_logo.png')}}" alt="Sukaii" class="p-2 logo_mobile">
+        <a href="#" style="text-decoration: none;"><img src="{{ URL::asset('images/sukaii_transparent_logo.png')}}" alt="Sukaii" class="p-2 logo_mobile"></a>
     </div>
     <div class="col-6 col-md-9 col-sm-6 hide_menu">
         <div class="d-md-block d-none justify-content-end login_row row w-100">
