@@ -7,6 +7,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Orders;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Home;
+use App\Http\Controllers\MailController;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,11 @@ Route::post('goSignIn', [RegisterController::class, 'goSignIn']);
 Route::get('orderServices', [ServiceController::class, 'orderServices']);
 Route::get('order', [ServiceController::class, 'order']);
 Route::post('placeOrder', [ServiceController::class, 'placeOrder']);
+Route::get('getPackages/{type}', [ServiceController::class, 'getPackages']);
+Route::get('getPackageDet/{package_id}', [ServiceController::class, 'getPackageDet']);
+Route::get('packages', function(){
+	return view('packages');
+});
 
 ////Admin Order Details/////
 Route::get('orders_list', [Orders::class, 'getOrders']);
@@ -51,6 +58,18 @@ Route::get('enquiry', [Admin::class, 'getEnquiryList']);
 Route::get('/', [Home::class, 'index']);
 Route::get('Book', [Home::class, 'Book']);
 Route::get('User_Profile', [Home::class, 'UserOrderHistory']);
+Route::view('enquiry_form', 'enquiry_form');
 Route::post('getEnquiry', [Home::class, 'getEnquiry']);
 Route::post('UpdateProfileDetails', [Home::class, 'UpdateProfileDetails']);
+
+Route::get('sendSMS2',[Home::class,'sendSMS2']);
+Route::get('sendSMS3',[Home::class,'sendSMS3']);
+
+Route::view('enquiry','enquiry_form');
+Route::get('send_email',[MailController::class,'sendEmail']);
+
+Route::view('services','basic_services');
+Route::view('select_nurse_form','select_nurse_form');
+Route::view('payment_gateway','payment_gateway');
+Route::view('invoice','invoice');
 

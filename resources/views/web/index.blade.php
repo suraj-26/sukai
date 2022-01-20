@@ -156,6 +156,11 @@
                     <input type="text" required name="mobile" class="border-0" style="outline: none;padding-left: 15px;"
                            placeholder="Enter your Mobile No" id="freecall_mobile">
                 </div>
+                <div class="freecall_div border-dark p-2 form-control " style="padding: 10px;">
+                    <span><i class="fas fa-user freecall_name_icon"></i></span>
+                    <input type="text" required name="email" class="border-0" style="outline: none;padding-left: 15px;"
+                           placeholder="Enter your Email" id="email">
+                </div>
 
                 <div class="freecall_div border-dark form-control py-0">
                     <span><i class="fas fa-map-marker-alt freecall_name_icon"></i></span>
@@ -213,7 +218,9 @@
             <div class="" style="width: 100%; margin: auto;">
                 <h2 class="Nurse_at_home_text text-center">HEALTH CHECK</h2>
                 <div class="book_btn text-center">
-                    <button id="btn1" type="button" onclick="showForm(1)" class="btn book_services_btn text-light">BOOK</button>
+                    <!-- <button id="btn1" type="button" onclick="showForm(1)" class="btn book_services_btn text-light">BOOK</button> -->
+                    <a href="services"><button id="btn1" type="button" class="btn book_services_btn text-light">BOOK</button></a>
+                    
                 </div>
             </div>
         </div>
