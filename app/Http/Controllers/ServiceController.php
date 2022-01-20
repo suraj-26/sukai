@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TestMail;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 
 class ServiceController extends Controller
 {
@@ -119,11 +124,87 @@ class ServiceController extends Controller
 
         $package_det_insert = DB::table('order_details')->insert($arrOrderDet);
         if ($package_det_insert) {
+            $patient_det = DB::table('users_master')->where('id', session('id'))->first();
+            $sms = $this->sendSMS($patient_det->mobile, array('name' => $patient_det->name, 'otp' => $patient_det->id, 'time' => date('H:i:s'),'center'=>'vashi','room'=>'1','bed'=>'1','company'=>'gbtech'), '1107164205399035078',3);
+            $this->sendEmail($patient_det->email);
+            // sendSMS(session('mobile'), array('name' => session('name'), 'otp' => session('id'), 'time' => date('H')), '1107164205399035078', '1');
             return redirect('User_Profile');
         } else {
             session()->flash('error', 'Something Went Wrong');
             return redirect('/');
         }
         echo json_encode($response);
+    }
+
+    public function getPackages($type){
+
+        $packages = DB::select('select * from package_master where package_type ='.$type.' and status = 1');
+        if (count($packages) > 0) {
+            $response['status'] = 200;
+            $response['body'] = $packages;
+        } else {
+            $response['status'] = 201;
+            $response['body'] = "No Data Found";
+        }
+        echo json_encode($response);
+    }
+
+    public function getPackageDet($package_id){
+
+        $packageDet = DB::select('SELECT *,(select pm.package_name from package_master pm where pm.id = pd.package_id) as package_name FROM package_details pd where package_id = '.$package_id);
+        if (count($packageDet) > 0) {
+            $response['status'] = 200;
+            $response['body'] = $packageDet;
+        } else {
+            $response['status'] = 201;
+            $response['body'] = "No Data Found";
+        }
+        echo json_encode($response);
+    }
+    
+    
+    public function sendSMS($number,$templateData,$template,$templateID=1){
+        $username="bharatmishra1";
+        $password ="bharat@100";
+        $sender="GLDBRZ";
+        $message="";
+        $postData = array(
+            'user' => "bharatmishra1",
+            'password'=>"bharat@100",
+            'mobile' =>$number,
+            'sender' => $sender,
+            'type' => '3'
+        );
+        switch ($templateID){
+            case 1:
+                $postData["template_id"]=$template;
+                $postData['message'] = "".$templateData['name']." has been admitted in the ".$templateData['center']." and has been allotted ".$templateData['bed']." in ".$templateData['room']." -Gold Berries";
+                break;
+            case 2:
+                $postData["template_id"]=$template;
+                $postData['message'] = "".$templateData['name']." has been transferred to ".$templateData['center']." in ".$templateData['bed']." in ".$templateData['room']." -Gold Berries";
+                break;
+            case 3:
+                $postData["template_id"]=$template;
+                $postData['message'] = "Treatment has been started for ".$templateData['otp']." -Gold Berries";
+                $postData['message'] = "OTP for Login Transaction on ".$templateData['company']." is ".$templateData['otp']." and valid till ".$templateData['time'].".Do not share this OTP to anyone for security reasons -Gold Berries";
+                break;
+        }
+
+        $client = new Client();
+        $response = $client->request('GET', 'http://api.bulksmsgateway.in/sendmessage.php', array(
+            'query' =>$postData
+        ));
+        return $response->getBody();
+
+    }
+    
+    public function sendEmail($to){
+        $details = [
+            'title'=> 'Mail from Sukai',
+            'body'=>'Thank you for contact with us'
+        ];
+        Mail::to($to)->send(new TestMail($details));
+        return "Email Sent.";
     }
 }

@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TestMail;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
+
 
 class Home extends Controller
 {
@@ -103,24 +108,101 @@ class Home extends Controller
     {
         $name = $req->input('Name');
         $mobile = $req->input('mobile');
+        $email = $req->input('email');
         $services = $req->input('services');
         $location = $req->input('location');
-        $patient_id = session('id');
+        if(session('id')){
+            $patient_id = session('id');
+        }else{
+            $last_id = DB::table('user_enquiry')->orderBy('id', 'desc')->first();//SELECT MAX(id) FROM tablename;
+            $patient_id = intval($last_id->id)+1;
+        }
 
         $insert_enquiry = DB::table('user_enquiry')->insert([
             'patient_id' => $patient_id,
             'name' => $name,
             'mobile' => $mobile,
+            'email' => $email,
             'services' => $services,
             'location' => $location
         ]);
         if ($insert_enquiry) {
-            session()->flash('success', 'Enquiry Registered for '.$name.'');
-            return redirect('/');
+           
+            $this->sendEmail($email,$name);
+            // $sms = $this->sendSMS($mobile, array('name' => $name, 'otp' => $patient_id, 'time' => date('H:i:s'),'center'=>'vashi','room'=>'1','bed'=>'1','company'=>'gbtech'), '1107164205399035078',3);
+            
+            // if($sms){
+            //     session()->flash('success', 'Enquiry Registered for '.$name.'');
+                return redirect('/');
+            // }else{
+            //     return view('enquiry_form');
+            // }
         } else {
             session()->flash('error', 'Something Went Wrong');
             return redirect('/');
         }
+    }
+
+    
+
+    public function sendSMS($number,$templateData,$template,$templateID=1){
+        $username="bharatmishra1";
+        $password ="bharat@100";
+        $sender="GLDBRZ";
+        $message="";
+        $postData = array(
+            'user' => "bharatmishra1",
+            'password'=>"bharat@100",
+            'mobile' =>$number,
+            'sender' => $sender,
+            'type' => '3'
+        );
+        switch ($templateID){
+            case 1:
+                $postData["template_id"]=$template;
+                $postData['message'] = "".$templateData['name']." has been admitted in the ".$templateData['center']." and has been allotted ".$templateData['bed']." in ".$templateData['room']." -Gold Berries";
+                break;
+            case 2:
+                $postData["template_id"]=$template;
+                $postData['message'] = "".$templateData['name']." has been transferred to ".$templateData['center']." in ".$templateData['bed']." in ".$templateData['room']." -Gold Berries";
+                break;
+            case 3:
+                $postData["template_id"]=$template;
+                $postData['message'] = "Treatment has been started for ".$templateData['otp']." -Gold Berries";
+                $postData['message'] = "OTP for Login Transaction on ".$templateData['company']." is ".$templateData['otp']." and valid till ".$templateData['time'].".Do not share this OTP to anyone for security reasons -Gold Berries";
+                break;
+        }
+
+        $client = new Client();
+        $response = $client->request('GET', 'http://api.bulksmsgateway.in/sendmessage.php', array(
+            'query' =>$postData
+        ));
+        return $response->getBody();
+
+    }
+    
+    public function sendEmail($to,$name){
+        $details = [
+            'title'=> 'Mail from Sukai',
+            'body'=>$this->email_body($name),
+            'name'=>$name
+        ];
+        Mail::to($to)->send(new TestMail($details));
+        return "Email Sent.";
+    }
+
+    public function email_body($name=''){
+        $body = '<p>
+            Hi '.$name.', please find the attached of your result.
+        </p>
+        <p>Warm Regards,</p>
+        <p><img src="{{ URL::asset("images/sukai_logo.png")}}" alt="" class="" width="50" height="50"></p>
+        <p>
+        <b>T : </b>+91 123456789 <br>
+        <b>W : </b>www.sukai.com <br>
+        513 Arenja Corner Sector 17 Mumbai-702
+        </p>
+        ';
     }
 }
 
