@@ -65,6 +65,7 @@
 
         @media (max-width: 380px) {
             .login_form {
+                left:9%;
                 top: 20%;
                 padding: 3%;
                 min-width: 300px;
