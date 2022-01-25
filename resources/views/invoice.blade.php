@@ -33,7 +33,9 @@
     <div class="container mt-5 mb-5">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
-                <div class="receipt bg-white p-3 rounded"><img src="{{ URL::asset('images/sukaii_transparent_logo.png')}}" width="120">
+
+                <div class="receipt bg-white p-3 rounded"><img src="{{URL::asset("images/sukaii_transparent_logo.png")}}" width="120">
+
                     <h4 class="mt-2 mb-3">Your order is confirmed!</h4>
                     <h6 class="name">Hello John,</h6><span class="fs-12 text-black-50">your order has been confirmed and will be shipped in two days</span>
                     <hr>
@@ -45,7 +47,9 @@
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between align-items-center product-details">
-                        <div class="d-flex flex-row product-name-image"><img class="rounded" src="{{ URL::asset('images/cbc.png')}}" width="80">
+
+                        <div class="d-flex flex-row product-name-image"><img class="rounded" src="{{URL::asset("images/cbc.png")}}" width="80">
+
                             <div class="d-flex flex-column justify-content-between ml-2">
                                 <div><span class="d-block font-weight-bold p-name">Complete Blood Count (CBC)</span><span class="fs-12">Blood Test</span></div><span class="fs-12">Qty: 1 service</span>
                             </div>
@@ -55,7 +59,9 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center product-details">
-                        <div class="d-flex flex-row product-name-image"><img class="rounded" src="{{ URL::asset('images/ecg.png')}}" width="80">
+
+                        <div class="d-flex flex-row product-name-image"><img class="rounded" src="{{URL::asset("images/ecg.png")}}" width="80">
+
                             <div class="d-flex flex-column justify-content-between ml-2">
                                 <div><span class="d-block font-weight-bold p-name">Electrocardiography (ECG)</span><span class="fs-12">check heart  </span></div><span class="fs-12">Qty: 1 service</span>
                             </div>
