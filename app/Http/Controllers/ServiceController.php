@@ -126,7 +126,7 @@ class ServiceController extends Controller
         if ($package_det_insert) {
             $patient_det = DB::table('users_master')->where('id', session('id'))->first();
             $sms = $this->sendSMS($patient_det->mobile, array('name' => $patient_det->name, 'otp' => $patient_det->id, 'time' => date('H:i:s'),'center'=>'vashi','room'=>'1','bed'=>'1','company'=>'gbtech'), '1107164205399035078',3);
-            $this->sendEmail($patient_det->email);
+            $this->sendEmail($patient_det->email,$patient_det->name);
             // sendSMS(session('mobile'), array('name' => session('name'), 'otp' => session('id'), 'time' => date('H')), '1107164205399035078', '1');
             return redirect('User_Profile');
         } else {
@@ -199,12 +199,38 @@ class ServiceController extends Controller
 
     }
     
-    public function sendEmail($to){
+    // public function sendEmail($to){
+    //     $details = [
+    //         'title'=> 'Mail from Sukai',
+    //         'body'=>'Thank you for contact with us'
+    //     ];
+    //     Mail::to($to)->send(new TestMail($details));
+    //     return "Email Sent.";
+    // }
+
+    
+    public function sendEmail($to,$name){
         $details = [
             'title'=> 'Mail from Sukai',
-            'body'=>'Thank you for contact with us'
+            'body'=>$this->email_body($name),
+            'name'=>$name,
+            'email_type'=>2,
         ];
         Mail::to($to)->send(new TestMail($details));
         return "Email Sent.";
+    }
+
+    public function email_body($name=''){
+        $body = '<p>
+            Hi '.$name.', please find the attached of your result.
+        </p>
+        <p>Warm Regards, as</p>
+        <p><img src="{{ URL::asset("images/sukai_logo.png")}}" alt="" class="" width="50" height="50"></p>
+        <p>
+        <b>T : </b>+91 123456789 <br>
+        <b>W : </b>www.sukai.com <br>
+        513 Arenja Corner Sector 17 Mumbai-702
+        </p>
+        ';
     }
 }

@@ -90,12 +90,12 @@
                             </table>
                             <div>
                                 <div class="now_order mb-3 mt-2">
-                                    <a href="./select_nurce_form.html">
+                                    <a href="select_nurse_form">
                                         <button type="button" class="btn btn-info w-100"> Book selected services</button>
                                     </a>
                                 </div>
                                 <div class="view_order">
-                                    <a href="./cart.html">
+                                    <a href="cart">
                                         <button type="button" class="btn btn-info w-100"> View Selected services</button>
                                     </a>
                                 </div>

@@ -70,7 +70,7 @@
                                     <a href="select_basic_services" style="text-decoration: none; " class="text-dark">
                                         <div class="align-items-center d-flex justify-content-between">
                                             <h1 class="frend_end_heading h5 pt-2 ">Heakth Checkup</h1>
-                                            <img src="./images/ealdrly_img(2).png" alt="Frontend" width="30%" class="pl-3 py-2">
+                                            <img src="images/ealdrly_img(2).png" alt="Frontend" width="30%" class="pl-3 py-2">
                                         </div>
                                     </a>
                                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque.</p>

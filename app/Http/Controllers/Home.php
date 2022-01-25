@@ -185,7 +185,8 @@ class Home extends Controller
         $details = [
             'title'=> 'Mail from Sukai',
             'body'=>$this->email_body($name),
-            'name'=>$name
+            'name'=>$name,
+            'email_type'=>1,
         ];
         Mail::to($to)->send(new TestMail($details));
         return "Email Sent.";
@@ -195,7 +196,7 @@ class Home extends Controller
         $body = '<p>
             Hi '.$name.', please find the attached of your result.
         </p>
-        <p>Warm Regards,</p>
+        <p>Warm Regards, as</p>
         <p><img src="{{ URL::asset("images/sukai_logo.png")}}" alt="" class="" width="50" height="50"></p>
         <p>
         <b>T : </b>+91 123456789 <br>
