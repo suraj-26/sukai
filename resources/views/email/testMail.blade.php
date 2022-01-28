@@ -1,13 +1,15 @@
-@if($details['email_type'] == 1)
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Mail</title>
+    <title>mail reader</title>
 </head>
-<body>
+
+<body style="padding: 0px; margin: 0px;">
+@if($details['email_type'] == 1)
     <h1>{{$details['title']}}</h1>
     <p>{{$details['body']}}</p>
     <p>
@@ -20,21 +22,9 @@
         <b>W : </b>www.sukai.com <br>
         513 Arenja Corner Sector 17 Mumbai-702
         </p>
-</body>
-</html>
 
 @elseif($details['email_type'] == 2)
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mail reader</title>
-</head>
-
-<body style="padding: 0px; margin: 0px;">
     <div style="display: flex; justify-content: space-between; padding: 0px 10px; box-shadow: 0px 1px 6px 0px lightgrey;">
         <img src="{{ URL::asset('/images/sukaii_transparent_logo.png')}}" alt="Sukaii" style="max-width: 125px; width: 25%; height: 53px;">
         <h5>Total Amount : <span>680</span></h5>
@@ -121,25 +111,13 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
 @elseif($details['email_type'] == 3)
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 <p style="padding: 1rem; text-align: justify;">Dear {{$details['name']}},<br> Welcome, We thank you for your registration at Sukaii website.<br><br> Your user id is <b>{{$details['username']}}</b><br><br>
         <!-- Your email id Verification OTP code is : 375813 -->
         You will use this user id given above for booked all your services on <a href="sukaii.ecovisrkca.com">Sukaii.</a><br><br> The user id cannot be changed and hence we recommend that you store this email for your future reference.<br><br> We understand
         that you have read and agreed to the Terms and Conditions as applicable for transactions on our site. You can now book your services online. We hope to offer you a uniquely pleasant experience in planning and booking your servises with the
         <a href="sukaii.ecovisrkca.com">Sukaii</a>. We look forward to having you use our services regularly. In case you require any further assistance, please mail us at <a href="https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><b>admin@suakii.com</b></a>        or call us at 24*7 Hrs. Customer Support at <b>888777666554</b>.</p>
-</body>
-</html>
    
 @endif
+</body>
+</html>
