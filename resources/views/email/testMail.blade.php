@@ -10,19 +10,51 @@
 
 <body style="padding: 0px; margin: 0px;">
 @if($details['email_type'] == 1)
-    <h1>{{$details['title']}}</h1>
-    <p>{{$details['body']}}</p>
-    <p>
-            Hi {{$details['name']}}, please find the attached of your result.
-        </p>
-        <p>Warm Regards,</p>
-        <p><b>Clinic @ Sukai</b></p>
-        <p>
-        <b>T : </b>+91 123456789 <br>
-        <b>W : </b>www.sukai.com <br>
-        513 Arenja Corner Sector 17 Mumbai-702
-        </p>
-
+    <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center">
+          <table class="email-content" width="100%" cellpadding="0" cellspacing="0">
+            <!-- Email Body -->
+            <tr>
+              <td class="email-body" width="100%" cellpadding="0" cellspacing="0">
+                <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0">
+                  <!-- Body content -->
+                  <tr>
+                    <td class="content-cell">
+                    <h1>{{$details['title']}}</h1>
+                    <p>{{$details['body']}}</p>
+                    <p>
+                        Hi {{$details['name']}},<br>
+                        Thank you to contact with us. Our correspondant will contact you soon.
+                    </p>
+                    <p>Warm Regards,</p>
+                    <p><b>Clinic @ Sukai</b></p>
+                    
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="content-cell" align="center">
+                      
+                    <p>
+                        <b>T : </b>+91 123456789 <br>
+                        <b>W : </b>www.sukai.com <br>
+                        513 Arenja Corner Sector 17 Mumbai-702
+                    </p> 
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
 @elseif($details['email_type'] == 2)
 
     <div style="display: flex; justify-content: space-between; padding: 0px 10px; box-shadow: 0px 1px 6px 0px lightgrey;">
